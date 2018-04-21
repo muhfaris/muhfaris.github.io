@@ -2,14 +2,14 @@
 
 ## Linux
 - `sudo apt install git`
-- 'sudo apt-get install git'
+- `sudo apt-get install git`
 - `yum install git`
-- 'sudo pacman -S git'
+- `sudo pacman -S git`
 
 	 Choose according to your operating system
 
 ## Windows
-- open in your browser 'https://git-scm.com/'
+- open in your browser `https://git-scm.com/`
 - choose 64bit / 32bit
 
 
