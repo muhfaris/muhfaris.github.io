@@ -1,6 +1,21 @@
 # How to install Golang
 
 ## Linux
+1. Download Golang (https://golang.org/dl/)
+2. Extract to `/usr/local`
+`tar -C /usr/local xzvf go1.8.1.linux-amd64.tar.gz`
+3. Create folder Projects
+`mkdir -p ~/Projects/Go`
+4. Configuration env, open `~/.bashrc`
+`
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/Projects/Go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+`
+5. After save, run type `source ~/.bashrc`
+6. Check with `go version`
+
+
 
 ## Windows
 
