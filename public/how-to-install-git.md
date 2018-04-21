@@ -1,4 +1,4 @@
-#How To Install Git
+# How To Install Git
 
 ## Linux
 - `sudo apt install git`
