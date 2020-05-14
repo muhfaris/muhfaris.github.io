@@ -1,6 +1,6 @@
 ## My Stack Problems
 
-> This project forked and has been modified from [A simple grey theme for Jekyll](https://github.com/muhfaris/muhfaris.github.io),
+> This project forked and has been modified from [agusmakmun.github.io](https://github.com/muhfaris/muhfaris.github.io),
 > and the search posts using [Super Search](https://github.com/chinchang/super-search)
 
 ### Demo
