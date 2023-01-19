@@ -1,56 +1,54 @@
-title: Stack Problems
-description: My Personal Stack Problems
-author: Muh faris
-github: https://github.com/muhfaris
-about: I'm human.
-disqus_shortname: stackproblems
-google_analytics: UA-XXXXXXXX-Y
+# Site
+name: 'Muh Faris'
+description: 'little note of a developer for great knowledge'
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+disqus: ''
+email: 'info@muhfaris.com'
+mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
 
-enableTags: true
-tagarray: []
+include: ["_pages"]
+permalink: /:title/
 
-collections:
-  project:
-    output: true
-    permalink: /project/:path/
-
-social:
-  - icon: fa-facebook
-    link: "#"
-  - icon: fa-twitter
-    link: "#"
-  - icon: fa-linkedin
-    link: "#"
-  - icon: fa-stack-exchange
-    link: "#"
-  - icon: fa-github
-    link: "https://github.com/muhfaris"
-
-share:
-  twitter_username: github.io
-  fb_appid: 1749788565247320
-
-urls:
-  - text: About Me
-    url: /about/
-  - text: My Projects
-    url: /projects/
-  - text: XML Feed
-    url: /feed.xml
-
-url: "https://muhfaris.github.io"
-baseurl: ""
-paginate: 20
-per_page: 20
-paginate_path: "/page/:num/"
-markdown: kramdown
-gems:
+# Plugins
+plugins: 
+  - jekyll-feed
+  - jekyll-sitemap
   - jekyll-paginate
-  - jekyll-gist
+  - jekyll-seo-tag
+  
+authors:
+    muhfaris:
+      name: Muh Faris
+      avatar:         /assets/images/avatar1.jpg
+      bio:            "Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang"
+      twitter:        https://twitter.com/_muhfaris
 
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  ignore:
-    envs: ["development"]
+# Defaults
+defaults:
+
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: sal
+      avatar: /assets/images/avatar1.jpg
+      
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+      
+# Syntax
+markdown: kramdown
+highlighter: rouge
+
+# Paginate
+paginate: 10
+
+
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
