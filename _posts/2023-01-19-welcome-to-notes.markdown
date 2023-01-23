@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to catatan developer"
 author: muhfaris
-image: assets/images/demo1.jpg
+image: assets/images/welcome.jpg
 ---
 Halo, selamat datang di catatan perjalanan seorang developer. Disini saya akan berbagi cerita dan pengalaman selama
 jadi developer.
@@ -12,4 +12,6 @@ Berawal dari blogspot, kemudian pindah ke wordpress dengan hosted sendiri-pun ti
 bisa konsisten dalam menulis.
 
 Di tahun ini mau memulai kembali menulis tentang perjalanan developer dan juga akan ada yang
-lain-nya, riset atau review.
+lain-nya, riset, review atau curhat aja.
+
+Semoga platform ini bisa bermanfaat juga buat para pembaca, terimakasih sudah berkunjung.

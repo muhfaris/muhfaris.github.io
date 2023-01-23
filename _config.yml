@@ -20,7 +20,7 @@ plugins:
 authors:
     muhfaris:
       name: Muh Faris
-      avatar:         /assets/images/avatar1.jpg
+      avatar:         assets/images/faris.jpg
       bio:            "Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang"
       twitter:        https://twitter.com/_muhfaris
 
