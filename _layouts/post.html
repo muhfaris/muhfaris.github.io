@@ -106,7 +106,7 @@ layout: default
       </div>
 
       <!-- Mailchimp Subscribe Form -->
-      {% if site.mailchimp-list %}
+      {% if site.sendinblue-list %}
       <div class="border p-5 bg-lightblue">
         <div class="row justify-content-between">
           <div class="col-md-6 mb-2 mb-md-0">
@@ -116,7 +116,7 @@ layout: default
           <div class="col-md-6">
             <div class="row">
               <form
-                action="{{site.mailchimp-list}}"
+                action="{{site.sendinblue-list}}"
                 method="post"
                 name="mc-embedded-subscribe-form"
                 class="wj-contact-form validate w-100"
