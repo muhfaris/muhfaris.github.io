@@ -82,7 +82,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-toc
-  nokogiri (~> 1.14)
+  nokogiri
 
 RUBY VERSION
    ruby 3.1.3p185
