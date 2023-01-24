@@ -17,5 +17,4 @@ group :jekyll_plugins do
     gem 'jekyll-seo-tag'
     gem 'nokogiri', '~> 1.14'
     gem 'jekyll-toc'
-    gem 'sass-embedded', '~> 1.57', '>= 1.57.1'
 end
