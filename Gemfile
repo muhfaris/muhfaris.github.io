@@ -15,6 +15,6 @@ group :jekyll_plugins do
     gem 'jekyll-sitemap'
     gem 'jekyll-paginate'
     gem 'jekyll-seo-tag'
-    gem 'nokogiri', '~> 1.14'
-    gem 'jekyll-toc' 
+    gem 'nokogiri' 
+    gem 'jekyll-toc'
 end

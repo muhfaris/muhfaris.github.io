@@ -1,11 +1,12 @@
 # Site
 name: "Muh Faris"
+title: "Muh Faris"
 description: "little note of a developer for great knowledge"
 logo: "assets/images/logo.png"
 favicon: "assets/images/favicon.ico"
 disqus: ""
 email: "info@muhfaris.com"
-mailchimp-list: "https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b"
+sendinblue-list: "https://79eb4b77.sibforms.com/serve/MUIEABIP7QrE8bKlYGCWi87PdTUbkrXlAUw3KEqpBnj8c7xNaIFImuDqUHhelL4HYoWenJjyukhlify6x8NK-pddEdLDwV46yelEivNMLktOMReC3RkV1DC0TC_Sb6LpmC10ejV1OIJHFgX9p9cQYG3wP-lZ7LVnFSCQIFqxt6bXOdjxD03vPj8hs9_uJbWyvvgVnvOoVXU1FhzW"
 
 include: ["_pages"]
 permalink: /:title/
