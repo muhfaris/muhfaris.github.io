@@ -1,32 +1,32 @@
 # Site
-name: 'Muh Faris'
-description: 'little note of a developer for great knowledge'
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
-disqus: ''
-email: 'info@muhfaris.com'
-mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+name: "Muh Faris"
+description: "little note of a developer for great knowledge"
+logo: "assets/images/logo.png"
+favicon: "assets/images/favicon.ico"
+disqus: ""
+email: "info@muhfaris.com"
+mailchimp-list: "https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b"
 
 include: ["_pages"]
 permalink: /:title/
 
 # Plugins
-plugins: 
+plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
-  
+  - jekyll-toc
+
 authors:
-    muhfaris:
-      name: Muh Faris
-      avatar:         assets/images/faris.jpg
-      bio:            "Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang"
-      twitter:        https://twitter.com/_muh_faris
+  muhfaris:
+    name: Muh Faris
+    avatar: assets/images/faris.jpg
+    bio: "Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang"
+    twitter: https://twitter.com/_muh_faris
 
 # Defaults
 defaults:
-
   # all posts
   - scope:
       path: "_posts"
@@ -34,13 +34,13 @@ defaults:
       layout: post
       author: sal
       avatar: /assets/images/avatar1.jpg
-      
+
   # all pages
   - scope:
       path: "_pages"
     values:
       layout: page
-      
+
 # Syntax
 markdown: kramdown
 highlighter: rouge
@@ -48,7 +48,17 @@ highlighter: rouge
 # Paginate
 paginate: 10
 
-
+toc:
+  list_class: list-toc-class
+  sublist_class: sublist-toc-class
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+exclude:
+  [
+    README.markdown,
+    package.json,
+    grunt.js,
+    Gruntfile.js,
+    Gruntfile.coffee,
+    node_modules,
+  ]
