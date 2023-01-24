@@ -4,12 +4,13 @@ title:  "Cara membentuk kebiasaan baru"
 description: "Ada 5 cara membentuk kebiasaan baru dalam belajar suatu bahasa."
 author: muhfaris
 image: assets/images/habit.jpg
+toc: true
 ---
 Mempelajari bahasa baru bukanlah hal yang instan dan mudah, kita harus punya perencanaan-perencanaan
 yang dapat mendukung dan memudahkan dalam memahaminya. Menurut Alex Rawlings dalam buku-nya **How to speak any language
 Fluently**, ada 5 tahapan dalam membentuk kebiasaan baru secara efisien.
 
-### 1. Dream Big, Think Small
+## 1. Dream Big, Think Small
 Mimpi besar merupakan suatu impian yang ingin kamu capai. Mimpi besar adalah sosok dirimu dimasa
 depan yang kamu inginkan. Mimpi besar adalah suatu hal yang kamu anggap tidak mampu tapi kamu dapat
 menggapainya. Hal yang membuat seseorang merasa tidak mampu terhadap mimpi yang dia inginkan adalah
@@ -28,7 +29,7 @@ yang kamu capai. Dalam sehari kamu dapat menghafal 3 vocab dan dapat menggunakan
 
 Jika kamu tidak bisa konsisten pada langkah pertama, maka semakin jauh juga kamu dengan impian kamu.
 
-### 2. Behaviour Chains
+## 2. Behaviour Chains
 Pada saat ini jangan memaksakan diri untuk mengubah kebiasaan kamu sebelumnya atau mengganti kebiasaan lama kamu dengan yang baru, lebih baik menyisipkan waktu didalam kebiasaan baru kamu untuk belajar bahasa baru. Ini membuat kamu tahu kapan dan apa yang akan kamu lakukan dalam rutinitasmu.
 
 Yuk kita berimajinasi, jika rutinitas kamu seperti berikut:
@@ -44,7 +45,7 @@ Dilihat dari rutinitas diatas kamu dapat belajar bahasa baru ketika *masak air* 
 rutinitas baru untuk belajar. Sedangkan pada sesi nonton tv, kamu bisa melihat tontonan tv luar
 negeri yang menggunakan bahasa yang sedang kamu pelajari.
 
-### 3. Eliminate Excessive Options
+## 3. Eliminate Excessive Options
 Identifikasi semua aktifitas harian kamu yang membuat kamu berfikir keras, padahal kamu tidak
 seharusnya melakukan itu. Seperti halnya memilih menu makan, di setiap harinya kamu harus berfikir keras menjelang
 sarapan,  makan siang dan makan malam. Berfikir apa yang mau kamu makan? hal ini akan lebih efisien
@@ -57,7 +58,7 @@ kenakan.
 Sehingga waktu-waktu yang tadinya untuk berfikir atas opsi yang sedang kamu fikirkan bisa digunakan
 untuk belajar, menggingat pelajaran yang sudah kamu pelajari sebelumnya.
 
-### 4. Plan The Process, Not Just The Outcome
+## 4. Plan The Process, Not Just The Outcome
 Cara melihat hasil yang kita inginkan juga perlu difikirkan, tapi jangan sampai berlarut-larut
 sehingga lupa dengan langkah awal yang harus diambil. Memang penting untuk memikirkan apa dan
 tujuannya seperti apa, tapi jika kamu tidak memikirkan bagaimana cara meraihnya maka kamu tidak akan
@@ -68,7 +69,7 @@ dirimu bercengkrama dengan buku, mulailah obrolan dengan guru atau partner kamu 
 sedang kamu dalami, catat semua vocab yang kamu dapatkan dari Youtube ataupun course dan jangan lupa
 untuk membuat study plan kamu.
 
-### 5. Eliminate Your Obstacles
+## 5. Eliminate Your Obstacles
 List apa saja alasan-alasan yang mungkin akan muncul ketika kamu ingin belajar atau alasan-alasan
 yang dapat mengalihkan kamu dengan goal yang sedang ingin kamu capai. Apa yang menjadi kendala dalam
 belajar kamu? coba untuk dihilangkan.
