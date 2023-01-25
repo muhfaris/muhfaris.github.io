@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Categories | Muh Faris</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Categories | Muh Faris</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Categories" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="little note of a developer for great knowledge" />
+<meta property="og:description" content="little note of a developer for great knowledge" />
+<meta property="og:site_name" content="Muh Faris" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Categories" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"little note of a developer for great knowledge","headline":"Categories","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/logo.png"}},"url":"/categories.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- This goes before </head> closing tag, Google Analytics can be placed here --> 
+
+
+</head>
+
+<body class="">
+
+    <!-- Navbar -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html"><strong>Muh Faris</strong></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+               <!--  Replace menu links here -->
+
+<!-- <li class="nav-item"> -->
+<!-- <a class="nav-link" href="/index.html">Home</a> -->
+<!-- </li> -->
+<!-- <li class="nav-item"> -->
+<!-- <a class="nav-link" href="/authors-list.html">Authors</a> -->
+<!-- </li> -->
+<!-- <li class="nav-item"> -->
+<!-- <a class="nav-link" href="/contact.html">Contact</a> -->
+<!-- </li> -->
+<!-- <li class="nav-item"> -->
+<!-- <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-wordpress/">WP</a> -->
+<!-- </li> -->
+<!-- <li class="nav-item"> -->
+<!-- <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mundana-ghost/">Ghost</a> -->
+<!-- </li> -->
+<!-- <li class="nav-item"> -->
+<!-- <a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a> -->
+<!-- </li> -->
+
+            </ul>
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <script src="/assets/js/lunr.js"></script>
+
+<script>
+$(function() {
+    $("#lunrsearchresults").on('click', '#btnx', function () {
+        $('#lunrsearchresults').hide( 1000 );
+        $( "body" ).removeClass( "modal-open" );
+    });
+});
+    
+
+var documents = [{
+    "id": 0,
+    "url": "/404/",
+    "title": "",
+    "body": " 404 Page not found :(  The requested page could not be found. "
+    }, {
+    "id": 1,
+    "url": "/categories.html",
+    "title": "Categories",
+    "body": "          Categories                              Featured:    				                  "
+    }, {
+    "id": 2,
+    "url": "/contact.html",
+    "title": "Contact",
+    "body": "  Please send your message to {{site. name}}. We will reply as soon as possible!   "
+    }, {
+    "id": 3,
+    "url": "/",
+    "title": "Little notes of developer",
+    "body": "  {% if page. url ==  /  %}            {% assign latest_post = site. posts[0] %}          &lt;div class= topfirstimage  style= background-image: url({% if latest_post. image contains  ://  %}{{ latest_post. image }}{% else %} {{site. baseurl}}/{{ latest_post. image}}{% endif %}); height: 200px;  background-size: cover;  background-repeat: no-repeat; &gt;&lt;/div&gt;           {{ latest_post. title }}  :       {{ latest_post. excerpt | strip_html | strip_newlines | truncate: 136 }}               In         {% for category in latest_post. categories %}        {{ category }},         {% endfor %}                                {{ latest_post. date | date: '%b %d, %Y' }}                            {%- assign second_post = site. posts[1] -%}                        {% if second_post. image %}                         &lt;img class= w-100  src= {% if second_post. image contains  ://  %}{{ second_post. image }}{% else %}{{ second_post. image | absolute_url }}{% endif %}  alt= {{ second_post. title }} &gt;                        {% endif %}                                    {{ second_post. title }}          :                       In             {% for category in second_post. categories %}            {{ category }},             {% endfor %}                                                      {{ second_post. date | date: '%b %d, %Y' }}                                    {%- assign third_post = site. posts[2] -%}                        {% if third_post. image %}                         &lt;img class= w-100  src= {% if third_post. image contains  ://  %}{{ third_post. image }}{% else %}{{site. baseurl}}/{{ third_post. image }}{% endif %}  alt= {{ third_post. title }} &gt;                        {% endif %}                                    {{ third_post. title }}          :                       In             {% for category in third_post. categories %}            {{ category }},             {% endfor %}                                                      {{ third_post. date | date: '%b %d, %Y' }}                                    {%- assign fourth_post = site. posts[3] -%}                        {% if fourth_post. image %}                        &lt;img class= w-100  src= {% if fourth_post. image contains  ://  %}{{ fourth_post. image }}{% else %}{{site. baseurl}}/{{ fourth_post. image }}{% endif %}  alt= {{ fourth_post. title }} &gt;                        {% endif %}                                    {{ fourth_post. title }}          :                       In             {% for category in fourth_post. categories %}            {{ category }},             {% endfor %}                                                      {{ fourth_post. date | date: '%b %d, %Y' }}                                  {% for post in site. posts %} {% if post. tags contains  sticky  %}                    {{post. title}}                  {{ post. excerpt | strip_html | strip_newlines | truncate: 136 }}                 Read More            	             {% endif %}{% endfor %}  {% endif %}                All Stories:         {% for post in paginator. posts %}          {% include main-loop-card. html %}        {% endfor %}                   {% if paginator. total_pages &gt; 1 %}              {% if paginator. previous_page %}        &laquo; Prev       {% else %}        &laquo;       {% endif %}       {% for page in (1. . paginator. total_pages) %}        {% if page == paginator. page %}        {{ page }}        {% elsif page == 1 %}        {{ page }}        {% else %}        {{ page }}        {% endif %}       {% endfor %}       {% if paginator. next_page %}        Next &raquo;       {% else %}        &raquo;       {% endif %}            {% endif %}                     {% include sidebar-featured. html %}      "
+    }, {
+    "id": 4,
+    "url": "/privacy-policy.html",
+    "title": "Privacy Policy",
+    "body": "”{{site. name}}” takes your privacy seriously. To better protect your privacy we provide this privacy policy notice explaining the way your personal information is collected and used. Collection of Routine Information: This website track basic information about their visitors. This information includes, but is not limited to, IP addresses, browser details, timestamps and referring pages. None of this information can personally identify specific visitor to this website. The information is tracked for routine administration and maintenance purposes. Cookies: Where necessary, this website uses cookies to store information about a visitor’s preferences and history in order to better serve the visitor and/or present the visitor with customized content. Advertisement and Other Third Parties: Advertising partners and other third parties may use cookies, scripts and/or web beacons to track visitor activities on this website in order to display advertisements and other useful information. Such tracking is done directly by the third parties through their own servers and is subject to their own privacy policies. This website has no access or control over these cookies, scripts and/or web beacons that may be used by third parties. Learn how to opt out of Google’s cookie usage. Links to Third Party Websites: We have included links on this website for your use and reference. We are not responsible for the privacy policies on these websites. You should be aware that the privacy policies of these websites may differ from our own. Security: The security of your personal information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security. Changes To This Privacy Policy: This Privacy Policy is effective and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page. We reserve the right to update or change our Privacy Policy at any time and you should check this Privacy Policy periodically. If we make any material changes to this Privacy Policy, we will notify you either through the email address you have provided us, or by placing a prominent notice on our website. Contact Information: For any questions or concerns regarding the privacy policy, please contact us here. "
+    }, {
+    "id": 5,
+    "url": "/tags.html",
+    "title": "Tags",
+    "body": "          Tags          {% for tag in site. tags %}     {{ tag[0] }}:           {% assign pages_list = tag[1] %}    {% for post in pages_list %}    {% if post. title != null %}     {% if group == null or group == post. group %}           {% include main-loop-card. html %}     {% endif %}    {% endif %}    {% endfor %}    {% assign pages_list = nil %}    {% assign group = nil %}    {% endfor %}                  {% include sidebar-featured. html %}          "
+    }, {
+    "id": 6,
+    "url": "/robots.txt",
+    "title": "",
+    "body": "      Sitemap: {{ “sitemap. xml”   absolute_url }}   "
+    }, {
+    "id": 7,
+    "url": "/forming-new-habbit/",
+    "title": "Cara membentuk kebiasaan baru",
+    "body": "2023/01/20 - Mempelajari bahasa baru bukanlah hal yang instan dan mudah, kita harus punya perencanaan-perencanaanyang dapat mendukung dan memudahkan dalam memahaminya. Menurut Alex Rawlings dalam buku-nya How to speak any languageFluently, ada 5 tahapan dalam membentuk kebiasaan baru secara efisien. 1. Dream Big, Think Small: Mimpi besar merupakan suatu impian yang ingin kamu capai. Mimpi besar adalah sosok dirimu dimasadepan yang kamu inginkan. Mimpi besar adalah suatu hal yang kamu anggap tidak mampu tapi kamu dapatmenggapainya. Hal yang membuat seseorang merasa tidak mampu terhadap mimpi yang dia inginkan adalahkarena dia ragu dengan kemampuannya sendiri sehingga ini dapat membatasi kemampuannya untuk menggapai apa yang diainginkan. Sedangkan percaya diri pada impiam besar kamu, merupakan jalan untuk menggapai itu semua. Yangmenjadi penghubung antara dirimu yang sekarang dengan impian kamu adalah langkah-langkah yang kamuambil sekarang. Keputusan yang kamu ambil membuat kamu semakin menjauh atau semakin mendekat denganimpian kamu? Pernah dengar campaign Mulai Aja Dulu,seperti campaign tersebut, dalam mewujudkan mimpi besarkamu harus mulai terlebih dahulu. Mulailah belajar setiap hari dan setiap minggu, fokus pada halyang kamu capai. Dalam sehari kamu dapat menghafal 3 vocab dan dapat menggunakannya dalam suatu kalimat merupakan sebuah pencapaian, kamu dalam seminggu dapat rutin belajar setiap hari juga merupakan sebuah pencapaian. Jadi jangan lupa untuk mengapresiasi diri kamu atas apa yang kamu usahakan. Jika kamu tidak bisa konsisten pada langkah pertama, maka semakin jauh juga kamu dengan impian kamu. 2. Behaviour Chains: Pada saat ini jangan memaksakan diri untuk mengubah kebiasaan kamu sebelumnya atau mengganti kebiasaan lama kamu dengan yang baru, lebih baik menyisipkan waktu didalam kebiasaan baru kamu untuk belajar bahasa baru. Ini membuat kamu tahu kapan dan apa yang akan kamu lakukan dalam rutinitasmu. Yuk kita berimajinasi, jika rutinitas kamu seperti berikut:  Pulang Kerja Bersih-bersih diri Masak Air Makan Nonton TV TidurDilihat dari rutinitas diatas kamu dapat belajar bahasa baru ketika masak air dan ketika kamunonton tv. Proses masak air kurang lebih 15-30 menit, pada waktu tersebut kamu dapat memasukkanrutinitas baru untuk belajar. Sedangkan pada sesi nonton tv, kamu bisa melihat tontonan tv luarnegeri yang menggunakan bahasa yang sedang kamu pelajari. 3. Eliminate Excessive Options: Identifikasi semua aktifitas harian kamu yang membuat kamu berfikir keras, padahal kamu tidakseharusnya melakukan itu. Seperti halnya memilih menu makan, di setiap harinya kamu harus berfikir keras menjelangsarapan, makan siang dan makan malam. Berfikir apa yang mau kamu makan? hal ini akan lebih efisienjika kamu melakukannya di weekend, plan dalam 1 minggu kedepan kamu akan makan apa saja. Contoh lain memilih pakaian yang akan dikenakan sebelum pergi. Jika aktifitas yang kamu lakukan sudah direncanakan sebelumnya, kamu tidak perlu menghabiskan waktu untuk memilih pakaian yang akan kamukenakan. Sehingga waktu-waktu yang tadinya untuk berfikir atas opsi yang sedang kamu fikirkan bisa digunakanuntuk belajar, menggingat pelajaran yang sudah kamu pelajari sebelumnya. 4. Plan The Process, Not Just The Outcome: Cara melihat hasil yang kita inginkan juga perlu difikirkan, tapi jangan sampai berlarut-larutsehingga lupa dengan langkah awal yang harus diambil. Memang penting untuk memikirkan apa dantujuannya seperti apa, tapi jika kamu tidak memikirkan bagaimana cara meraihnya maka kamu tidak akanmendapatkannya. Luangkan waktu untuk berfikir apa yang akan kamu lakukan dalam kegiatanmu sehari-hari. Bayangkandirimu bercengkrama dengan buku, mulailah obrolan dengan guru atau partner kamu dengan bahasa yangsedang kamu dalami, catat semua vocab yang kamu dapatkan dari Youtube ataupun course dan jangan lupauntuk membuat study plan kamu. 5. Eliminate Your Obstacles: List apa saja alasan-alasan yang mungkin akan muncul ketika kamu ingin belajar atau alasan-alasanyang dapat mengalihkan kamu dengan goal yang sedang ingin kamu capai. Apa yang menjadi kendala dalambelajar kamu? coba untuk dihilangkan. Jika terkendala dengan aktifitas yang padat, kamu dapat mencobanya dengan meletakkan buku dimana saja dengan jangkauan yang dapatkamu lihat dan kamu baca diwaktu-waktu sengang kamu. Walaupun itu hanya 5 menit, itu juga sangat berarti. "
+    }, {
+    "id": 8,
+    "url": "/welcome-to-notes/",
+    "title": "Welcome to catatan developer",
+    "body": "2023/01/19 - Halo, selamat datang di catatan perjalanan seorang developer. Disini saya akan berbagi cerita dan pengalaman selamajadi developer. Platform ini adalah platform yang ke-3, perjalanan untuk belajar menulis tidak mudah ternyata. Berawal dari blogspot, kemudian pindah ke wordpress dengan hosted sendiri-pun tidak menjamin untukbisa konsisten dalam menulis. Di tahun ini mau memulai kembali menulis tentang perjalanan developer dan juga akan ada yanglain-nya, riset, review atau curhat aja. Semoga platform ini bisa bermanfaat juga buat para pembaca, terimakasih sudah berkunjung. "
+    }];
+
+var idx = lunr(function () {
+    this.ref('id')
+    this.field('title')
+    this.field('body')
+
+    documents.forEach(function (doc) {
+        this.add(doc)
+    }, this)
+});
+
+
+    
+function lunr_search(term) {
+    $('#lunrsearchresults').show( 1000 );
+    $( "body" ).addClass( "modal-open" );
+    
+    document.getElementById('lunrsearchresults').innerHTML = '<div id="resultsmodal" class="modal fade show d-block"  tabindex="-1" role="dialog" aria-labelledby="resultsmodal"> <div class="modal-dialog shadow-lg" role="document"> <div class="modal-content"> <div class="modal-header" id="modtit"> <button type="button" class="close" id="btnx" data-dismiss="modal" aria-label="Close"> &times; </button> </div> <div class="modal-body"> <ul class="mb-0"> </ul>    </div> <div class="modal-footer"><button id="btnx" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button></div></div> </div></div>';
+    if(term) {
+        document.getElementById('modtit').innerHTML = "<h5 class='modal-title'>Search results for '" + term + "'</h5>" + document.getElementById('modtit').innerHTML;
+        //put results on the screen.
+        var results = idx.search(term);
+        if(results.length>0){
+            //console.log(idx.search(term));
+            //if results
+            for (var i = 0; i < results.length; i++) {
+                // more statements
+                var ref = results[i]['ref'];
+                var url = documents[ref]['url'];
+                var title = documents[ref]['title'];
+                var body = documents[ref]['body'].substring(0,160)+'...';
+                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><small><span class='body'>"+ body +"</span><br /><span class='url'>"+ url +"</span></small></a></li>";
+            }
+        } else {
+            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>Sorry, no results found. Close & try a different search!</li>";
+        }
+    }
+    return false;
+}
+</script>
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+
+
+<form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+<input type="text" class="form-control text-small"  id="lunrsearch" name="q" value="" placeholder="Type keyword and enter..."> 
+</form>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Search Results -->
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div>
+
+    <!-- Content -->
+    <main role="main" class="site-content">
+        <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+        <h1 class="font-weight-bold title h6 text-uppercase mb-4">Categories</h1>
+            
+        
+
+        </div>
+        
+            <div class="col-md-4">
+        <div class="sticky-top sticky-top-offset">
+    <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
+    <ol class="list-featured">				
+           
+    </ol>
+</div>     
+    </div>
+        
+    </div>
+</div>
+
+    </main>
+
+
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/theme.js"></script>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Muh Faris</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+           </div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- All this area goes before </body> closing tag --> 
+
+
+</body>
+
+</html>
