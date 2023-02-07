@@ -1,6 +1,10 @@
+### Jekyll ###
 _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
 tags
+
+### NPM ###
+/node_modules/

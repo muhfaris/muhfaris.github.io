@@ -1,65 +1,6 @@
-# Site
-name: "Muh Faris"
-title: "Muh Faris"
-description: "little note of a developer for great knowledge"
-logo: "assets/images/logo.png"
-favicon: "assets/images/favicon.ico"
-disqus: ""
-email: "info@muhfaris.com"
-sendinblue-list: "https://79eb4b77.sibforms.com/serve/MUIEABIP7QrE8bKlYGCWi87PdTUbkrXlAUw3KEqpBnj8c7xNaIFImuDqUHhelL4HYoWenJjyukhlify6x8NK-pddEdLDwV46yelEivNMLktOMReC3RkV1DC0TC_Sb6LpmC10ejV1OIJHFgX9p9cQYG3wP-lZ7LVnFSCQIFqxt6bXOdjxD03vPj8hs9_uJbWyvvgVnvOoVXU1FhzW"
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "" # the name of your site, e.g. ACME Corp.
 
-include: ["_pages"]
-permalink: /:title/
-
-# Plugins
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-toc
-
-authors:
-  muhfaris:
-    name: Muh Faris
-    avatar: assets/images/faris.jpg
-    bio: "Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang"
-    twitter: https://twitter.com/_muh_faris
-
-# Defaults
-defaults:
-  # all posts
-  - scope:
-      path: "_posts"
-    values:
-      layout: post
-      author: sal
-      avatar: /assets/images/avatar1.jpg
-
-  # all pages
-  - scope:
-      path: "_pages"
-    values:
-      layout: page
-
-# Syntax
-markdown: kramdown
-highlighter: rouge
-
-# Paginate
-paginate: 10
-
-toc:
-  list_class: list-toc-class
-  sublist_class: sublist-toc-class
-
-# Exclude metadata and development time dependencies (like Grunt plugins)
-exclude:
-  [
-    README.markdown,
-    package.json,
-    grunt.js,
-    Gruntfile.js,
-    Gruntfile.coffee,
-    node_modules,
-  ]
+  - jekyll-postcss
