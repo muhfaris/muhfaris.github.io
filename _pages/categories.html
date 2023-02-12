@@ -4,33 +4,65 @@ layout: default
 permalink: "/categories.html"
 ---
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-        <h1 class="font-weight-bold title h6 text-uppercase mb-4">Categories</h1>
-            
-        {% for category in site.categories %} 
-        <h4 class="font-weight-bold spanborder text-capitalize" id="{{ category[0] | downcase }}"><span>{{ category[0] }}</span></h4>
-            
-        {% assign pages_list = category[1] %}
-        {% for post in pages_list %}
-        {% if post.title != null %}
-          {% if group == null or group == post.group %}
-         
-            {% include main-loop-card.html %}
-          {% endif %}
-        {% endif %}
-        {% endfor %}
-        {% assign pages_list = nil %}
-        {% assign group = nil %}
-
-        {% endfor %}
-
+<div
+  x-data="{atTop:true}"
+  class="post flex flex-col justify-between"
+  :class="{'min-h-screen' :'h-screen'}"
+  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)"
+>
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <header class="pt-6 xl:pb-6">
+      <div class="space-y-1 text-center">
+        <div>
+          <h1
+            class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+          >
+            Categories
+          </h1>
         </div>
-        
-            <div class="col-md-4">
-        {% include sidebar-featured.html %}    
+      </div>
+    </header>
+    <div class="container mx-auto flex justify-center px-4 text-white">
+      <div
+        class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+        style="grid-template-rows: auto 1fr"
+      >
+        <div
+          class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
+        >
+          <div class="max-w-screen-md px-4 md:px-8 mx-auto">
+            <div class="">
+              {% for category in site.categories %} {% capture category_name
+              %}{{ category | first }}{% endcapture %} {% assign pages_list =
+              category[1] %} {% for post in pages_list %} {% if post.title !=
+              null %} {% if group == null or group == post.group %}
+              <div
+                class="prose dark:prose-invert flex flex-col gap-3 py-4 md:py-8"
+              >
+                <span class="not-prose">
+                  <a href="{{ post.url }}" class="no-underline">
+                    <h3
+                      class="block text-3xl text-teal-500 hover:text-teal-600 text-sm font-bold"
+                    >
+                      {{ post.title }}
+                    </h3>
+                  </a>
+                </span>
+                <span class="block text-sm">
+                  {{ post.date | date: '%b %d, %Y' }}
+                </span>
+
+                <blockquote>
+                  {{ post.excerpt | strip_html | strip_newlines | truncate:
+                  186}}
+                </blockquote>
+              </div>
+              {% endif %} {% endif %} {% endfor %} {% assign pages_list = nil %}
+              {% assign group = nil %} {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-        
-    </div>
+  </main>
 </div>

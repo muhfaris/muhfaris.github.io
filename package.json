@@ -1,0 +1,30 @@
+{
+  "name": "muhfaris.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhfaris/muhfaris.github.io.git"
+  },
+  "author": "info@muhfaris.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhfaris/muhfaris.github.io/issues"
+  },
+  "homepage": "https://github.com/muhfaris/muhfaris.github.io#readme",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefix": "^1.0.1",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "postcss-import": "^15.1.0"
+  }
+}

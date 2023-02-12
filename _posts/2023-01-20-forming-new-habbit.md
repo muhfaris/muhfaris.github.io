@@ -5,10 +5,10 @@ description: "Ada 5 cara membentuk kebiasaan baru dalam belajar suatu bahasa."
 author: muhfaris
 image: assets/images/habit.jpg
 toc: true
+categories: ["self-development"]
 ---
 Mempelajari bahasa baru bukanlah hal yang instan dan mudah, kita harus punya perencanaan-perencanaan
-yang dapat mendukung dan memudahkan dalam memahaminya. Menurut Alex Rawlings dalam buku-nya **How to speak any language
-Fluently**, ada 5 tahapan dalam membentuk kebiasaan baru secara efisien.
+yang dapat mendukung dan memudahkan dalam memahaminya. Menurut Alex Rawlings dalam buku-nya **How to speak any language Fluently**, ada 5 tahapan dalam membentuk kebiasaan baru secara efisien.
 
 ## 1. Dream Big, Think Small
 Mimpi besar merupakan suatu impian yang ingin kamu capai. Mimpi besar adalah sosok dirimu dimasa

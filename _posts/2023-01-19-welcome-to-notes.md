@@ -3,6 +3,7 @@ layout: post
 title:  "Welcome to catatan developer"
 author: muhfaris
 image: assets/images/welcome.jpg
+categories: ["welcome"]
 ---
 Halo, selamat datang di catatan perjalanan seorang developer. Disini saya akan berbagi cerita dan pengalaman selama
 jadi developer.
