@@ -10,15 +10,6 @@ permalink: "/categories.html"
   :class="{'min-h-screen' :'h-screen'}"
   @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)"
 >
-  {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture
-  -%}
-  <script>
-    let url = new URL(window.location.href);
-    let hash = url.hash;
-    let requestCategory = hash.substring(1, hash.length);
-    {% assign requestCategory = requestCategory %}
-    console.log(requestCategory)
-  </script>
   <main class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
     <header class="pt-6 xl:pb-6">
       <div class="space-y-1 text-center">
@@ -26,9 +17,7 @@ permalink: "/categories.html"
           <h1
             class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
           >
-            Categories {% assign category = page.url | last |
-            capitalize %} {{ requestCategory }}
-            <div class="request-category"></div>
+            Categories
           </h1>
         </div>
       </div>
@@ -52,7 +41,9 @@ permalink: "/categories.html"
               >
                 <span class="not-prose">
                   <a href="{{ post.url }}" class="no-underline">
-                    <h3 class="block text-3xl text-teal-500 hover:text-teal-600 text-sm font-bold">
+                    <h3
+                      class="block text-3xl text-teal-500 hover:text-teal-600 text-sm font-bold"
+                    >
                       {{ post.title }}
                     </h3>
                   </a>
