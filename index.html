@@ -1,0 +1,242 @@
+---
+permalink: "/index.html"
+layout: default
+---
+
+<div
+  x-data="{atTop:true}"
+  class="home flex justify-between"
+  :class="{'min-h-screen' :'h-screen'}"
+  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)"
+>
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-4xl xl:px-0">
+    <div
+      class="container mx-auto flex space-y-3 justify-center px-4 py-28 my-15 text-white dark:bg-gray-800"
+    >
+      <div class="flex f-welcome">
+        <div class="w-full">
+          <h2 class="text-xl lg:text-3xl mb-4">Hi,</h2>
+          <h3 class="text-4xl lg:text-6xl font-bold mb-4">
+            I am <a class="text-teal-500">Muh Faris</a>
+          </h3>
+          <blockquote class="relative">
+            <div class="py-2 z-10">
+              <p class="text-gray-800 sm:text-xl dark:text-white">
+                <em>
+                  I am a experienced software engineer with a proven track
+                  record of developing innovative and scalable software
+                  solutions. My expertise includes a wide range of programming
+                  languages and technologies, including Go, Node/Typescript,
+                  Python.
+                </em>
+              </p>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- work-->
+    <div
+      class="container mx-auto flex space-y-3 justify-start px-4 py-5 text-white dark:bg-gray-800"
+    >
+      <div class="f-project w-full">
+        <div class="f-project-title px-5 dark:text-white">
+          <h2 class="text-2xl lg:text-2xl font-bold mb-4">
+            Latest Project 
+          </h2>
+        </div>
+        <div
+          class="relative flex flex-col my-5 md:flex-row md:space-x-5 space-y-3 md:space-y-0
+          rounded-xl shadow-lg p-3 max-w-xl md:max-w-2xl lg:max-w-1lg bg-white dark:bg-gray-900"
+        >
+          <div
+            class="w-full md:w-3/12 bg-white justify-center items-center grid place-items-start dark:bg-gray-900"
+          >
+            <img
+              src="/assets/images/checkurl.png?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="tailwind logo"
+              class="rounded-xl"
+            />
+          </div>
+          <div
+            class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 dark:bg-gray-900"
+          >
+            <h3
+              class="font-black text-gray-800 md:text-3xl text-xl dark:text-white"
+            >
+              <a href="https://checkurl.muhfaris.com"> Check URL </a>
+            </h3>
+            <div class="flex justify-between item-center">
+              <p
+                class="text-gray-500 font-medium hidden text-xs md:block dark:text-white"
+              >
+                3 February 2023
+              </p>
+            </div>
+            <p class="md:text-xs text-gray-500 text-base dark:text-white">
+              Aplikasi untuk melihat real suatu website dari suatu short link,
+              seperti bit.ly, s.id, atau short link lainnya
+            </p>
+            <p class="text-xl font-black text-gray-800">
+              <a href="https://checkurl.muhfaris.com">
+                <span class="font-normal text-teal-500 text-base"
+                  >https://checkurl.muhfaris.com</span
+                >
+              </a>
+            </p>
+          </div>
+        </div>
+        <div
+          class="relative flex flex-col my-5 md:flex-row md:space-x-5 space-y-3 md:space-y-0
+          rounded-xl shadow-lg p-3 max-w-xl md:max-w-2xl lg:max-w-1lg bg-white dark:bg-gray-900"
+        >
+          <div
+            class="w-full md:w-3/12 justify-center items-center bg-gray-900 grid"
+          >
+            <img
+              src="/assets/images/e-statement.png?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt="tailwind logo"
+              class="rounded-xl"
+            />
+          </div>
+          <div
+            class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 dark:bg-gray-900"
+          >
+            <h3
+              class="font-black text-gray-800 md:text-3xl text-xl dark:text-white"
+            >
+              <a href="https://e-statement.in"> E-Statement.In </a>
+            </h3>
+            <div class="flex justify-between item-center">
+              <p
+                class="text-gray-500 font-medium hidden text-xs md:block dark:text-white"
+              >
+                20 December 2022
+              </p>
+            </div>
+            <p class="md:text-xs text-gray-500 text-base dark:text-white">
+              Aplikasi online yang dapat kamu gunakan untuk melakukan konversi
+              dokumen pdf statement menjadi excel file. Pdf statement dari
+              Gojek, Grab, BCA dst.
+            </p>
+            <p class="text-xl font-black text-gray-800">
+              <a href="https://e-statement.in">
+                <span class="font-normal text-teal-500 text-base"
+                  >https://e-statement.in</span
+                >
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end work-->
+    <div
+      class="container mx-auto flex space-y-3 justify-start px-4 py-5 text-white dark:bg-gray-800"
+    >
+      <div class="mb-10 md:mb-16">
+        <h2 class="text-white text-2xl lg:text-2xl font-bold mb-4 md:mb-6">
+          Latest Post
+        </h2>
+        <div
+          class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6 xl:gap-8"
+        >
+          {% for post in site.posts limit:4%}
+          <!-- article - start -->
+          <a
+            href="{{ post.url }}"
+            class="group h-48 md:h-64 xl:h-96 flex flex-col bg-gray-100 rounded-lg shadow-lg overflow-hidden relative"
+          >
+            <img
+              src="{{ site.baseurl }}{{ post.image }}?auto=format&q=75&fit=crop&w=600"
+              loading="lazy"
+              alt="{{ post.title }}"
+              class="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-110 transition duration-200"
+            />
+            <div
+              class="bg-gradient-to-t from-gray-800 md:via-transparent to-transparent absolute inset-0 pointer-events-none"
+            ></div>
+            <div class="relative p-4 mt-auto">
+              <span class="block text-gray-200 text-sm"
+                >{{ post.date | date: '%b %d, %Y' }}</span
+              >
+              <h2
+                class="text-white text-xl font-semibold transition duration-100 mb-2"
+              >
+                {{post.title}}
+              </h2>
+              <span class="text-indigo-300 font-semibold">Read more</span>
+            </div>
+          </a>
+          {% endfor %}
+          <!-- article - end -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <div class="title-work flex flex-col"> -->
+  <!--       <h2 class="text-2xl lg:text-2xl font-bold mb-4"> -->
+  <!--         Latest Work Experience -->
+  <!--       </h2> -->
+  <!--     </div> -->
+  <!--     <div class="h-work"> -->
+  <!--       <div class="relative flex flex-col mb-8"> -->
+  <!--         <div class="logo"> -->
+  <!--           <svg -->
+  <!--             version="1.0" -->
+  <!--             xmlns="http://www.w3.org/2000/svg" -->
+  <!--             width="100.000000pt" -->
+  <!--             height="100.000000pt" -->
+  <!--             viewBox="0 0 100.000000 100.000000" -->
+  <!--             preserveAspectRatio="xMidYMid meet" -->
+  <!--           > -->
+  <!--             <g -->
+  <!--               transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)" -->
+  <!--               fill="#AF2421" -->
+  <!--               stroke="none" -->
+  <!--             > -->
+  <!--               <path -->
+  <!--                 d="M371 927 c-11 -14 -38 -82 -102 -260 -37 -103 -38 -108 -21 -125 26 -26 348 -145 371 -137 11 3 22 13 26 23 65 165 125 346 120 361 -4 14 -55 37 -183 85 -97 36 -182 66 -188 66 -6 0 -17 -6 -23 -13z m299 -165 c0 -5 -32 -23 -70 -42 -43 -21 -69 -39 -66 -46 3 -7 8 -28 11 -47 l7 -34 -69 -6 c-37 -4 -86 -7 -108 -7 l-40 1 68 37 c56 30 67 41 62 57 -3 11 -8 32 -11 47 l-6 26 88 7 c49 3 96 8 104 9 27 6 30 6 30 -2z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M88 299 c-24 -14 -22 -48 4 -76 l21 -23 -21 0 c-15 0 -22 -6 -22 -19 0 -24 23 -33 54 -21 35 13 40 39 15 74 -15 20 -18 31 -11 34 7 2 12 12 12 23 0 21 -24 25 -52 8z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M180 230 c0 -73 2 -80 20 -80 18 0 20 7 20 80 0 73 -2 80 -20 80 -18 0 -20 -7 -20 -80z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M282 300 c-28 -12 -45 -54 -36 -93 8 -37 60 -62 99 -47 21 8 24 13 16 27 -5 10 -21 17 -38 18 -23 0 -28 4 -28 25 0 20 6 26 28 28 32 4 47 29 26 43 -17 11 -37 10 -67 -1z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M386 293 c-3 -10 -4 -45 -3 -78 l2 -60 43 -3 c37 -3 42 -1 42 17 0 14 -6 21 -20 21 -11 0 -20 5 -20 10 0 6 9 10 20 10 13 0 20 7 20 20 0 13 -7 20 -20 20 -11 0 -20 5 -20 10 0 6 9 10 20 10 13 0 20 7 20 20 0 17 -7 20 -39 20 -29 0 -41 -5 -45 -17z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M490 230 c0 -75 1 -80 21 -80 12 0 23 8 26 19 3 11 16 22 29 25 50 13 56 88 8 106 -14 6 -39 10 -55 10 l-29 0 0 -80z m62 8 c-9 -9 -12 -7 -12 12 0 19 3 21 12 12 9 -9 9 -15 0 -24z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M747 303 c-13 -12 -7 -33 8 -33 12 0 15 -13 15 -61 0 -57 1 -60 23 -57 19 3 22 10 25 61 2 31 7 57 12 57 6 0 10 9 10 20 0 17 -7 20 -43 20 -24 0 -47 -3 -50 -7z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M656 284 c-4 -10 -1 -14 6 -12 15 5 23 28 10 28 -5 0 -13 -7 -16 -16z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M684 239 c-3 -6 -1 -16 5 -22 18 -18 13 -31 -16 -49 l-28 -17 53 -1 c28 0 52 3 52 6 0 7 -51 94 -55 94 -2 0 -7 -5 -11 -11z" -->
+  <!--               /> -->
+  <!--               <path -->
+  <!--                 d="M611 192 c-24 -47 -16 -54 18 -18 18 19 21 29 13 42 -8 15 -13 12 -31 -24z" -->
+  <!--               /> -->
+  <!--             </g> -->
+  <!--           </svg> -->
+  <!--         </div> -->
+  <!--         <div class="w-5/5 lg:w-2/5"> -->
+  <!--           <p class="mb-2 text-1xl font-semibold">Sicepat Ekspres Indonesia</p> -->
+  <!--           <p class="mb-2">Backend Engineer</p> -->
+  <!--           <p class="mb-2">Feb-2022 - Present</p> -->
+  <!--           <p class="mb-2 font-semibold">Skill:</p> -->
+  <!--           <p class="text-xs">Go, MongoDB, Kafka, Redis</p> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!--     </div> -->
+</div>
