@@ -1,1 +1,1 @@
-Sitemap: http://muhfaris.com/sitemap.xml
+Sitemap: https://muhfaris.com/sitemap.xml
