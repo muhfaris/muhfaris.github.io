@@ -4,38 +4,30 @@ title: "Muh Faris"
 description: "little note of a developer for great knowledge"
 logo: "assets/images/logo.png"
 favicon: "assets/images/favicon.ico"
-
-url: "http://muhfaris.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://muhfaris.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-
 include: ["_pages"]
 permalink: /:title
-
 plugins:
   - jekyll-postcss
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-sitemap
-
 toc:
   ordered_list: false
   list_class: "section-nav list-disc list-inside"
-
 # Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
-
 # seo - https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 twitter:
   username: "_muh_faris"
-
 authors:
   muhfaris:
     name: Muh Faris
     avatar: assets/images/faris.jpg
     bio: "Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang"
     twitter: https://twitter.com/_muh_faris
-
 # Sitemap settings
 defaults:
   - scope:
@@ -43,19 +35,16 @@ defaults:
     values:
       layout: post
       author: muhfaris
-
   - scope:
       path: "assets/**/*.*"
     values:
       sitemap: false
-
 # These are the defaults
 external_links:
   enabled: true
   rel: external nofollow noopener
   target: _blank
   exclude:
-
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude:
   - Gemfile
@@ -65,6 +54,5 @@ exclude:
   - package-lock.json
   - vendor
   - node_modules
-
 postcss:
   cache: false
