@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html class="scroll-smooth hover:scroll-auto dark" lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mengatasi masalah where clause di Golang | Muh Faris</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mengatasi masalah where clause di Golang | Muh Faris</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Mengatasi masalah where clause di Golang" />
+<meta name="author" content="muhfaris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cara mengatasi variasi logik sql pada native atau raw sql di golang" />
+<meta property="og:description" content="Cara mengatasi variasi logik sql pada native atau raw sql di golang" />
+<link rel="canonical" href="https://muhfaris.com/where-clause-sql-di-golang" />
+<meta property="og:url" content="https://muhfaris.com/where-clause-sql-di-golang" />
+<meta property="og:site_name" content="Muh Faris" />
+<meta property="og:image" content="https://muhfaris.com/assets/images/habit.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-06-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://muhfaris.com/assets/images/habit.jpg" />
+<meta property="twitter:title" content="Mengatasi masalah where clause di Golang" />
+<meta name="twitter:site" content="@_muh_faris" />
+<meta name="twitter:creator" content="@muhfaris" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"muhfaris"},"dateModified":"2023-06-17T00:00:00+00:00","datePublished":"2023-06-17T00:00:00+00:00","description":"Cara mengatasi variasi logik sql pada native atau raw sql di golang","headline":"Mengatasi masalah where clause di Golang","image":"https://muhfaris.com/assets/images/habit.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://muhfaris.com/where-clause-sql-di-golang"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://muhfaris.com/assets/images/logo.png"},"name":"muhfaris"},"url":"https://muhfaris.com/where-clause-sql-di-golang"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="">
+    <header class="gaps-4 py-4 dark:bg-gray-900 dark:text-white">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="logo flex items-center justify-center text-2xl font-bold">
+          <a href="/" class="relative -mt-2">
+            <span class="text-6xl text-teal-500">.</span>
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-teal-500 relative inline-block"
+            >
+              <span class="relative text-white">muhfaris</span>
+            </span>
+          </a>
+        </div>
+        <nav>
+          <ul class="flex font-semibold text-xl">
+            <li>
+              <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400"
+                >/home</a
+              >
+            </li>
+            <li>
+              <a href="/blog" class="mr-4 dark:text-white dark:hover:text-teal-400"
+                >/blog</a
+              >
+            </li>
+            <li>
+              <a
+                href="mailto:dev@muhfaris.com"
+                class="mr-4 dark:text-white dark:hover:text-teal-400"
+                >/contact</a
+              >
+            </li>
+            <li>
+              <a href="#project" class="dark:text-white dark:hover:text-teal-400"
+                >/project</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Content -->
+    <main role="main" class="site-content dark:bg-gray-800">
+<div
+  x-data="{atTop:true}"
+  class="post flex flex-col justify-between"
+  :class="{'min-h-screen' :'h-screen'}"
+  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)"
+>
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <div class="container mx-auto flex justify-center px-4 text-white">
+      <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+        <header class="pt-6 xl:pb-6">
+          <div class="space-y-1 text-center">
+            <div>
+              <h1
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
+                Mengatasi masalah where clause di Golang
+              </h1>
+            </div>
+
+            <dl class="space-y-10">
+              <div>
+                <dt class="sr-only">Published on</dt>
+                <dd
+                  class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
+                >
+                  <time datetime="2021-05-02T00:00:00.000Z"
+                    >Sunday, May 2, 2021</time
+                  >
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </header>
+        <div
+          class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+          style="grid-template-rows: auto 1fr"
+        >
+          <dl
+            class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700"
+          >
+            <dt class="sr-only">Authors</dt>
+            <dd>
+              <ul
+                class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
+              >
+                <li class="flex items-center space-x-2">
+                  <span
+                    style="
+                      box-sizing: border-box;
+                      display: inline-block;
+                      overflow: hidden;
+                      width: initial;
+                      height: initial;
+                      background: none;
+                      opacity: 1;
+                      border: 0px;
+                      margin: 0px;
+                      padding: 0px;
+                      position: relative;
+                      max-width: 100%;
+                    "
+                    ><span
+                      style="
+                        box-sizing: border-box;
+                        display: block;
+                        width: initial;
+                        height: initial;
+                        background: none;
+                        opacity: 1;
+                        border: 0px;
+                        margin: 0px;
+                        padding: 0px;
+                        max-width: 100%;
+                      "
+                      ><img
+                        alt=""
+                        aria-hidden="true"
+                        src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2738%27%20height=%2738%27/%3e"
+                        style="
+                          display: block;
+                          max-width: 100%;
+                          width: initial;
+                          height: initial;
+                          background: none;
+                          opacity: 1;
+                          border: 0px;
+                          margin: 0px;
+                          padding: 0px;
+                        " /></span
+                    ><img
+                      alt="avatar"
+                      srcset="/assets/images/faris.jpg"
+                      src="/assets/images/faris.jpg"
+                      decoding="async"
+                      data-nimg="intrinsic"
+                      class="h-10 w-10 rounded-full"
+                      style="
+                        position: absolute;
+                        inset: 0px;
+                        box-sizing: border-box;
+                        padding: 0px;
+                        border: none;
+                        margin: auto;
+                        display: block;
+                        width: 0px;
+                        height: 0px;
+                        min-width: 100%;
+                        max-width: 100%;
+                        min-height: 100%;
+                        max-height: 100%;
+                      "
+                  /></span>
+                  <dl class="whitespace-nowrap text-sm font-medium leading-5">
+                    <dt class="sr-only">Name</dt>
+                    <dd class="text-gray-900 dark:text-gray-100">
+                      muhfaris
+                    </dd>
+                    <dt class="sr-only">Twitter</dt>
+                    <dd>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://twitter.com/_muh_faris"
+                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                        >@Twitter</a
+                      >
+                    </dd>
+                  </dl>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <div
+            class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
+          >
+            
+            <div id="table-of-contents" class="bg-gray-900 p-5">
+              <h2 class="font-semibold">Table of Contents</h2>
+              <ul id="toc" class="section-nav list-disc list-inside">
+</ul>
+            </div>
+            
+            <article
+              class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8"
+            >
+              <p>Beberapa tahun terakhir dalam kontribusi pembuataan aplikasi menggunakan
+database postgreSQL dengan bahas pemograman Golang, ada beberapa case yang
+seringkali sulit diterapkan pada RAW SQL.</p>
+
+<p>Contoh case yang sulit untuk diterapkan seperti menampilkan data dengan
+optional filter. Adanya optional filter ini membuat suatu query jadi berbeda
+setiap kali filter itu digunakan. Anggaplah ada data video dengan filter date,
+owner, kategory dan top 10 view, pada filter ini bisa dikombinasikan juga antar
+filter.</p>
+
+<p>Kita coba bikin object video untuk lebih mudah memahaminya:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">Video</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">id</span> <span class="kt">string</span>
+    <span class="n">name</span> <span class="kt">string</span>
+    <span class="n">category_id</span> <span class="kt">string</span>
+    <span class="n">created_at</span> <span class="n">time</span><span class="o">.</span><span class="n">Time</span>
+    <span class="n">created_by</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="n">VideoView</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">id</span> <span class="kt">string</span>
+    <span class="n">video_id</span> <span class="kt">string</span>
+    <span class="n">total_view</span> <span class="kt">int</span>
+    <span class="n">created_at</span> <span class="n">time</span><span class="o">.</span><span class="n">Time</span>
+    <span class="n">created_by</span> <span class="kt">string</span>
+    <span class="n">updated_at</span> <span class="n">time</span><span class="o">.</span><span class="n">Time</span>
+    <span class="n">updated_by</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Untuk menampilkan list video dengan filter date, disini menggunakan field <code class="language-plaintext highlighter-rouge">created_at</code> query yang digunakan kurang lebih seperti berikut:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">GetAllVideo</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">params</span> <span class="n">domain</span><span class="o">.</span><span class="n">SearchParams</span><span class="p">)(</span><span class="n">domain</span><span class="o">.</span><span class="n">Videos</span><span class="p">,</span> <span class="kt">error</span><span class="p">){</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="k">var</span> <span class="p">(</span>
+        <span class="n">wheres</span> <span class="p">[]</span><span class="k">interface</span><span class="p">{}</span>
+        <span class="n">where</span> <span class="kt">string</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">Date</span> <span class="o">!=</span> <span class="s">""</span><span class="p">{</span>
+        <span class="n">wheres</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">wheres</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
+        <span class="n">where</span> <span class="o">+=</span> <span class="s">"WHERE created_at=$1"</span>
+    <span class="p">}</span>
+
+
+    <span class="n">sql</span> <span class="o">:=</span><span class="s">`
+        SELECT
+            id, name, category_id, created_at, created_by
+        FROM videos`</span>
+
+    <span class="k">if</span> <span class="n">where</span> <span class="o">!=</span> <span class="s">""</span><span class="p">{</span>
+        <span class="n">sql</span> <span class="o">+=</span> <span class="n">where</span>
+
+    <span class="p">}</span>
+
+    <span class="n">rows</span><span class="p">,</span> <span class="n">err</span><span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">QueryContext</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">sql</span><span class="p">,</span> <span class="n">wheres</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+            <span class="o">...</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">rows</span><span class="o">.</span><span class="n">Next</span><span class="p">(){</span>
+            <span class="o">...</span>
+            <span class="o">...</span>
+    <span class="p">}</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Bagaimana jika filter date diatas dikombinasikan dengan filter category?
+Harus memperhatikan urutan pernulisan kode sqlnya, karena pada kode diatas placeholder SQL yang digunakan itu dihardcode. Belum lagi jika filternya hanya category saja tanpa date.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="o">...</span>
+<span class="o">...</span>
+    <span class="k">var</span> <span class="p">(</span>
+        <span class="n">wheres</span> <span class="p">[]</span><span class="k">interface</span><span class="p">{}</span>
+        <span class="n">where</span> <span class="kt">string</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">Date</span> <span class="o">!=</span> <span class="s">""</span><span class="p">{</span>
+        <span class="n">wheres</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">wheres</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
+        <span class="n">where</span> <span class="o">+=</span> <span class="s">"WHERE created_at=$1"</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">Date</span> <span class="o">!=</span><span class="s">""</span> <span class="o">&amp;&amp;</span> <span class="n">params</span><span class="o">.</span><span class="n">CategoryID</span> <span class="o">!=</span> <span class="s">""</span><span class="p">{</span>
+        <span class="n">wheres</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">wheres</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">CategoryID</span><span class="p">)</span>
+        <span class="n">where</span> <span class="o">+=</span> <span class="s">"AND category_id=$2"</span>
+    <span class="p">}</span>
+
+
+    <span class="n">sql</span> <span class="o">:=</span><span class="s">`
+        SELECT
+            id, name, category_id, created_at, created_by
+        FROM videos`</span>
+
+    <span class="k">if</span> <span class="n">where</span> <span class="o">!=</span> <span class="s">""</span><span class="p">{</span>
+        <span class="n">sql</span> <span class="o">+=</span> <span class="n">where</span>
+    <span class="p">}</span>
+
+<span class="o">...</span>
+<span class="o">...</span>
+
+</code></pre></div></div>
+
+<p>Bayangkan dari simple case diatas bisa jadi kompleks pada SQL querynya, belum lagi dikombinasikan dengan filter yang lain ataupun jika ada join ke table yang lain juga.
+Bagaimana jika bikin library general yang bisa bantu untuk mengatasi hal tersebut?
+Fungsinya itu sederhana, dia hanya menampung kondisi yang valid dalam suatu variabel kemudian ada method lain untuk menggabungkan kondisi secara keseluruhan termasuk query <code class="language-plaintext highlighter-rouge">WHERE</code>. Pertama bikin fungsinya terlebih dahulu, dengan beberapa parameter.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">func</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span><span class="n">SQLCondition</span><span class="p">)</span> <span class="n">Where</span><span class="p">(</span><span class="n">exist</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">query</span> <span class="kt">string</span><span class="p">,</span> <span class="n">value</span> <span class="k">interface</span><span class="p">{})</span> <span class="o">*</span><span class="n">SQLCondition</span> <span class="p">{</span>
+	<span class="k">const</span> <span class="n">dollarSymbol</span> <span class="o">=</span> <span class="s">"$"</span>
+
+	<span class="k">if</span> <span class="o">!</span><span class="n">exist</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">s</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="n">strings</span><span class="o">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">dollarSymbol</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">placeholder</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"%s%d"</span><span class="p">,</span> <span class="n">dollarSymbol</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">Args</span><span class="p">)</span><span class="o">+</span><span class="m">1</span><span class="p">)</span>
+		<span class="n">query</span> <span class="o">=</span> <span class="n">strings</span><span class="o">.</span><span class="n">ReplaceAll</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">dollarSymbol</span><span class="p">,</span> <span class="n">placeholder</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">hasAnd</span> <span class="p">{</span>
+		<span class="n">s</span><span class="o">.</span><span class="n">wheres</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"%s AND %s"</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">wheres</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+		<span class="n">s</span><span class="o">.</span><span class="n">hasAnd</span> <span class="o">=</span> <span class="no">false</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">s</span><span class="o">.</span><span class="n">wheres</span> <span class="o">=</span> <span class="n">query</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">s</span><span class="o">.</span><span class="n">Args</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">Args</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="n">s</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Fungsi diatas menerima hasil kondisi, jika hasilnya <code class="language-plaintext highlighter-rouge">true</code> maka query akan ditampung dalam variabel <code class="language-plaintext highlighter-rouge">wheres</code> dan jika variable <code class="language-plaintext highlighter-rouge">value</code> tidak <code class="language-plaintext highlighter-rouge">nil</code> maka akan ditampung juga dalam variabel <code class="language-plaintext highlighter-rouge">Args</code>.
+Pada fungsi diatas, ada logik untuk mendeteksi simbol dollar <code class="language-plaintext highlighter-rouge">$</code>. Ini adalah untuk membuat placeholder query itu secara dinamis, akan bertambah sesuai dengan kondisi dan existing kondisi sebelumnya. Sekarang kita lengkapin kode lainnya supaya bisa digunakan</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">type</span> <span class="n">SQLCondition</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">defaultQuery</span> <span class="kt">string</span>
+	<span class="n">wheres</span>       <span class="kt">string</span>
+	<span class="n">Args</span>         <span class="p">[]</span><span class="k">interface</span><span class="p">{}</span>
+	<span class="n">hasAnd</span>       <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">NewSQLCondition</span><span class="p">()</span> <span class="o">*</span><span class="n">SQLCondition</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="n">SQLCondition</span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span><span class="n">SQLCondition</span><span class="p">)</span> <span class="n">Where</span><span class="p">(</span><span class="n">exist</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">query</span> <span class="kt">string</span><span class="p">,</span> <span class="n">value</span> <span class="k">interface</span><span class="p">{})</span> <span class="o">*</span><span class="n">SQLCondition</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="c">// Previous code</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span><span class="n">SQLCondition</span><span class="p">)</span> <span class="n">And</span><span class="p">()</span> <span class="o">*</span><span class="n">SQLCondition</span> <span class="p">{</span>
+	<span class="n">s</span><span class="o">.</span><span class="n">hasAnd</span> <span class="o">=</span> <span class="no">true</span>
+	<span class="k">return</span> <span class="n">s</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span><span class="n">SQLCondition</span><span class="p">)</span> <span class="n">Build</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">wheres</span> <span class="o">!=</span> <span class="s">""</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"WHERE %s"</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">wheres</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="s">""</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Okay, kita bandingkan penulisan query pada case sebelumnya dengan menggunakan library yang baru saja dibuat.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="n">sqlCondition</span> <span class="o">:=</span> <span class="n">NewSQLCondition</span><span class="p">()</span>
+    <span class="n">sqlCondition</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">Date</span> <span class="o">!=</span><span class="s">""</span><span class="p">,</span> <span class="s">"created_at=$"</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span><span class="o">.</span><span class="n">And</span><span class="p">()</span><span class="o">.</span>
+    <span class="n">Where</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">Category</span> <span class="o">!=</span> <span class="s">""</span><span class="p">,</span> <span class="s">"category_id=$"</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">CategoryID</span><span class="p">)</span>
+
+    <span class="n">whereSQL</span> <span class="o">:=</span> <span class="n">sqlCondition</span><span class="o">.</span><span class="n">Build</span><span class="p">()</span>
+
+    <span class="n">sql</span> <span class="o">:=</span><span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">`
+        SELECT
+            id, name, category_id, created_at, created_by
+        FROM videos %s`</span><span class="p">,</span> <span class="n">whereSQL</span><span class="p">)</span>
+
+    <span class="n">rows</span><span class="p">,</span> <span class="n">err</span><span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">QueryContext</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">sql</span><span class="p">,</span> <span class="n">sqlCondition</span><span class="o">.</span><span class="n">Args</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+            <span class="o">...</span>
+    <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Hasil dari library kode jadi lebih clear, mudah baca query sqlnya juga. Jikalaupun ada kondisi yang tidak terpenuhi itu hasil querynya tetep valid.
+Sekian, semoga bisa jadi bahan diskusi untuk sesama programmer. thanks.</p>
+
+            </article>
+            <div class="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
+              <a
+                target="_blank"
+                rel="nofollow"
+                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing"
+                >Discuss on Twitter</a
+              >
+              •
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md"
+                >View on GitHub</a
+              >
+            </div>
+            <div id="comment">
+              <div
+                class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+              >
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="muhfaris/muhfaris.github.io"
+                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ=="
+                  data-category="Comments"
+                  data-category-id="DIC_kwDOBRvyb84CUJNs"
+                  data-mapping="url"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="dark_tritanopia"
+                  data-lang="en"
+                  data-loading="lazy"
+                  crossorigin="anonymous"
+                  async
+                ></script>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div
+              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y"
+            >
+              <div class="py-4 xl:py-8">
+                <h2
+                  class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                >
+                  Tags
+                </h2>
+                <div class="flex flex-wrap">
+                  
+                  <a
+                    class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                    href="/categories.html#programmer"
+                    >programmer</a
+                  >
+                  
+                </div>
+              </div>
+              <div
+                class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8"
+              >
+                <div>
+                  <h2
+                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                  >
+                    Previous Article
+                  </h2>
+                  <div
+                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                  >
+                    <a href="/forming-new-habbit"
+                      >Cara membentuk kebiasaan baru</a
+                    >
+                  </div>
+                </div>
+                <div>
+                  <h2
+                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                  >
+                    Next Article
+                  </h2>
+                  <div
+                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                  >
+                    <a href=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 xl:pt-8">
+              <a
+                class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                href="/"
+                >← Back to the blog</a
+              >
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</main>
+
+    <!-- Footer -->
+    <footer class="text-gray-600 body-font">
+      <div class="dark:bg-gray-900">
+        <div
+          class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+          </a>
+          <p class="text-sm dark:text-white sm:ml-6 sm:mt-0 mt-4">
+            © 2023 Muh Faris—
+            <a
+              href="https://twitter.com/_muh_faris"
+              rel="noopener noreferrer"
+              class="dark:text-white ml-1"
+              target="_blank"
+              >@_muh_faris</a
+            >
+          </p>
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+          >
+            <a class="ml-3 dark:text-white">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                ></path>
+              </svg>
+            </a>
+            <a class="ml-3 dark:text-white">
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="0"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
