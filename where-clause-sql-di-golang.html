@@ -20,16 +20,16 @@
 <link rel="canonical" href="https://muhfaris.com/where-clause-sql-di-golang" />
 <meta property="og:url" content="https://muhfaris.com/where-clause-sql-di-golang" />
 <meta property="og:site_name" content="Muh Faris" />
-<meta property="og:image" content="https://muhfaris.com/assets/images/habit.jpg" />
+<meta property="og:image" content="https://muhfaris.com/assets/images/go.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-06-17T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://muhfaris.com/assets/images/habit.jpg" />
+<meta property="twitter:image" content="https://muhfaris.com/assets/images/go.png" />
 <meta property="twitter:title" content="Mengatasi masalah where clause di Golang" />
 <meta name="twitter:site" content="@_muh_faris" />
 <meta name="twitter:creator" content="@muhfaris" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"muhfaris"},"dateModified":"2023-06-17T00:00:00+00:00","datePublished":"2023-06-17T00:00:00+00:00","description":"Cara mengatasi variasi logik sql pada native atau raw sql di golang","headline":"Mengatasi masalah where clause di Golang","image":"https://muhfaris.com/assets/images/habit.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://muhfaris.com/where-clause-sql-di-golang"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://muhfaris.com/assets/images/logo.png"},"name":"muhfaris"},"url":"https://muhfaris.com/where-clause-sql-di-golang"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"muhfaris"},"dateModified":"2023-06-17T00:00:00+00:00","datePublished":"2023-06-17T00:00:00+00:00","description":"Cara mengatasi variasi logik sql pada native atau raw sql di golang","headline":"Mengatasi masalah where clause di Golang","image":"https://muhfaris.com/assets/images/go.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://muhfaris.com/where-clause-sql-di-golang"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://muhfaris.com/assets/images/logo.png"},"name":"muhfaris"},"url":"https://muhfaris.com/where-clause-sql-di-golang"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -335,9 +335,11 @@ Harus memperhatikan urutan pernulisan kode sqlnya, karena pada kode diatas place
 
 </code></pre></div></div>
 
-<p>Bayangkan dari simple case diatas bisa jadi kompleks pada SQL querynya, belum lagi dikombinasikan dengan filter yang lain ataupun jika ada join ke table yang lain juga.
-Bagaimana jika bikin library general yang bisa bantu untuk mengatasi hal tersebut?
-Fungsinya itu sederhana, dia hanya menampung kondisi yang valid dalam suatu variabel kemudian ada method lain untuk menggabungkan kondisi secara keseluruhan termasuk query <code class="language-plaintext highlighter-rouge">WHERE</code>. Pertama bikin fungsinya terlebih dahulu, dengan beberapa parameter.</p>
+<p>Bayangkan dari simple case diatas bisa jadi kompleks pada SQL querynya, belum lagi dikombinasikan dengan filter yang lain ataupun jika ada join ke table yang lain juga.</p>
+
+<p>Bagaimana jika bikin library general yang bisa bantu untuk mengatasi hal tersebut?</p>
+
+<p>Fungsinya itu sederhana, dia hanya menampung kondisi yang valid dalam suatu variabel kemudian ada method lain untuk menggabungkan kondisi secara keseluruhan termasuk query <code class="language-plaintext highlighter-rouge">WHERE</code>. Pertama bikin fungsinya terlebih dahulu, dengan beberapa parameter.</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">func</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span><span class="n">SQLCondition</span><span class="p">)</span> <span class="n">Where</span><span class="p">(</span><span class="n">exist</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">query</span> <span class="kt">string</span><span class="p">,</span> <span class="n">value</span> <span class="k">interface</span><span class="p">{})</span> <span class="o">*</span><span class="n">SQLCondition</span> <span class="p">{</span>
