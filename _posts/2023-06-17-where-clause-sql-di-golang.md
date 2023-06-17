@@ -3,7 +3,7 @@ layout: post
 title: Mengatasi masalah where clause di Golang
 description: Cara mengatasi variasi logik sql pada native atau raw sql di golang
 author: muhfaris
-image: assets/images/habit.jpg
+image: assets/images/go.png
 toc: true
 categories:
   - programmer
@@ -122,7 +122,9 @@ Harus memperhatikan urutan pernulisan kode sqlnya, karena pada kode diatas place
 ```
 
 Bayangkan dari simple case diatas bisa jadi kompleks pada SQL querynya, belum lagi dikombinasikan dengan filter yang lain ataupun jika ada join ke table yang lain juga.
+
 Bagaimana jika bikin library general yang bisa bantu untuk mengatasi hal tersebut?
+
 Fungsinya itu sederhana, dia hanya menampung kondisi yang valid dalam suatu variabel kemudian ada method lain untuk menggabungkan kondisi secara keseluruhan termasuk query `WHERE`. Pertama bikin fungsinya terlebih dahulu, dengan beberapa parameter.
 
 ```go
