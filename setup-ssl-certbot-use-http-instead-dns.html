@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="scroll-smooth hover:scroll-auto dark" lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Setup ssl cerbot use HTTP instead DNS | Muh Faris</title>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Setup ssl cerbot use HTTP instead DNS | Muh Faris</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Setup ssl cerbot use HTTP instead DNS" />
+<meta name="author" content="muhfaris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://muhfaris.com/setup-ssl-certbot-use-http-instead-dns" />
+<meta property="og:url" content="https://muhfaris.com/setup-ssl-certbot-use-http-instead-dns" />
+<meta property="og:site_name" content="Muh Faris" />
+<meta property="og:image" content="https://muhfaris.com/assets/images/ssl.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-09T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://muhfaris.com/assets/images/ssl.jpg" />
+<meta property="twitter:title" content="Setup ssl cerbot use HTTP instead DNS" />
+<meta name="twitter:site" content="@_muh_faris" />
+<meta name="twitter:creator" content="@muhfaris" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"muhfaris"},"dateModified":"2023-10-09T00:00:00+00:00","datePublished":"2023-10-09T00:00:00+00:00","description":"Introduction","headline":"Setup ssl cerbot use HTTP instead DNS","image":"https://muhfaris.com/assets/images/ssl.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://muhfaris.com/setup-ssl-certbot-use-http-instead-dns"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://muhfaris.com/assets/images/logo.png"},"name":"muhfaris"},"url":"https://muhfaris.com/setup-ssl-certbot-use-http-instead-dns"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="">
+    <header class="gaps-4 py-4 dark:bg-gray-900 dark:text-white">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="logo flex items-center justify-center text-2xl font-bold">
+          <a href="/" class="relative -mt-2">
+            <span class="text-6xl text-teal-500">.</span>
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-teal-500 relative inline-block"
+            >
+              <span class="relative text-white">muhfaris</span>
+            </span>
+          </a>
+        </div>
+        <nav>
+          <ul class="flex font-semibold text-xl">
+            <li>
+              <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400"
+                >/home</a
+              >
+            </li>
+            <li>
+              <a href="/blog" class="mr-4 dark:text-white dark:hover:text-teal-400"
+                >/blog</a
+              >
+            </li>
+            <li>
+              <a
+                href="mailto:dev@muhfaris.com"
+                class="mr-4 dark:text-white dark:hover:text-teal-400"
+                >/contact</a
+              >
+            </li>
+            <li>
+              <a href="#project" class="dark:text-white dark:hover:text-teal-400"
+                >/project</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Content -->
+    <main role="main" class="site-content dark:bg-gray-800">
+<div x-data="{atTop:true}" class="post flex flex-col justify-between" :class="{'min-h-screen' :'h-screen'}"
+  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)">
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <div class="container mx-auto flex justify-center px-4 text-white">
+      <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+        <header class="pt-6 xl:pb-6">
+          <div class="space-y-1 text-center">
+            <div>
+              <h1
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+                Setup ssl cerbot use HTTP instead DNS
+              </h1>
+            </div>
+
+            <dl class="space-y-10">
+              <div>
+                <dt class="sr-only">Published on</dt>
+                <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 mt-2">
+                  <time datetime="2021-05-02T00:00:00.000Z">Monday, October 9,2023</time>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </header>
+        <div class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+          style="grid-template-rows: auto 1fr">
+          <dl class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+            <dt class="sr-only">Authors</dt>
+            <dd>
+              <ul class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
+                <li class="flex items-center space-x-2">
+                  <span style="
+                      box-sizing: border-box;
+                      display: inline-block;
+                      overflow: hidden;
+                      width: initial;
+                      height: initial;
+                      background: none;
+                      opacity: 1;
+                      border: 0px;
+                      margin: 0px;
+                      padding: 0px;
+                      position: relative;
+                      max-width: 100%;
+                    "><span style="
+                        box-sizing: border-box;
+                        display: block;
+                        width: initial;
+                        height: initial;
+                        background: none;
+                        opacity: 1;
+                        border: 0px;
+                        margin: 0px;
+                        padding: 0px;
+                        max-width: 100%;
+                      "><img alt="" aria-hidden="true"
+                        src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2738%27%20height=%2738%27/%3e"
+                        style="
+                          display: block;
+                          max-width: 100%;
+                          width: initial;
+                          height: initial;
+                          background: none;
+                          opacity: 1;
+                          border: 0px;
+                          margin: 0px;
+                          padding: 0px;
+                        " /></span><img alt="avatar" srcset="/assets/images/faris.jpg" src="/assets/images/faris.jpg"
+                      decoding="async" data-nimg="intrinsic" class="h-10 w-10 rounded-full" style="
+                        position: absolute;
+                        inset: 0px;
+                        box-sizing: border-box;
+                        padding: 0px;
+                        border: none;
+                        margin: auto;
+                        display: block;
+                        width: 0px;
+                        height: 0px;
+                        min-width: 100%;
+                        max-width: 100%;
+                        min-height: 100%;
+                        max-height: 100%;
+                      " /></span>
+                  <dl class="whitespace-nowrap text-sm font-medium leading-5">
+                    <dt class="sr-only">Name</dt>
+                    <dd class="text-gray-900 dark:text-gray-100">
+                      muhfaris
+                    </dd>
+                    <dt class="sr-only">Twitter</dt>
+                    <dd>
+                      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/_muh_faris"
+                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">@Twitter</a>
+                    </dd>
+                  </dl>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <div class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+            
+            <div id="table-of-contents" class="bg-gray-900 p-5">
+              <h2 class="font-semibold">Table of Contents</h2>
+              <ul id="toc" class="font-semibold list-disc hover:list-decimal list-inside">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a>
+<ul class="sublist-class list-disc list-inside">
+<li class="toc-entry toc-h3"><a href="#prerequirement">Prerequirement</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#setup-nginx-service">Setup Nginx Service</a>
+<ul class="sublist-class list-disc list-inside">
+<li class="toc-entry toc-h3"><a href="#configuration-nginx">Configuration nginx</a></li>
+<li class="toc-entry toc-h3"><a href="#setup-docker-compose-nginx">Setup docker compose nginx</a></li>
+<li class="toc-entry toc-h3"><a href="#generate-ssl-domain">Generate ssl domain</a></li>
+<li class="toc-entry toc-h3"><a href="#update-compose-and-load-ssl-cerificate">Update compose and load ssl cerificate</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+            
+            <article class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8">
+              <h2 id="introduction">Introduction</h2>
+
+<p>Installasi ssl pada suatu domain supaya dapat diakses secara aman dengan https://, perlu banget untuk menambahkah certificate dari domain tersebut. Generate certificate domain ini kita bisa manfaatkan tool certbot instead kita generate manual sendiri.</p>
+
+<p>Beberapa kasus kita bisa melakukan generate certificate ini di main domain dan akan berlaku di semua sub-domainnya, tapi itu hanya bisa dilakukan ketika kita menggunakan preferred-challenges adalah dns. Next kita akan bahas pada artikel selanjutnya.</p>
+
+<p>Pada artikel ini kita bahas untuk generate certificate dengan preferred-challenges adalah http, disini kita tidak perlu untuk menambahkan TXT record baru pada konfigurasi dns tapi hanya menambahkan konfigurasi pada webrootnya saja.</p>
+
+<h3 id="prerequirement">Prerequirement</h3>
+
+<p>Beberapa komponen yang perlu disiapkan sebelum kita mulai untuk installasi ssl pada domain</p>
+
+<ol>
+  <li>certbot</li>
+  <li>docker</li>
+  <li>nginx image</li>
+  <li>domain</li>
+</ol>
+
+<h2 id="setup-nginx-service">Setup Nginx Service</h2>
+
+<h3 id="configuration-nginx">Configuration nginx</h3>
+
+<p>Kita bikin folder baru, anggaplah saat ini kita ada di root directory atau <strong>home</strong> directory terminal. Buat folder <code class="language-plaintext highlighter-rouge">nginx</code> kemudian buat file dengan format <code class="language-plaintext highlighter-rouge">domain.com.conf</code> didalamnya. Jika nama domainnya adalah <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> maka file konfigurasinya adalah <code class="language-plaintext highlighter-rouge">muhfaris.com.conf</code>. Jadi akan terlihat seperti berikut structure foldernya</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">nginx</span><span class="w">
+</span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Selanjutnya kita akan siapkan konfigurasi nginx untuk handle request dari certbot. Pada konfigurasi ini kita perlu untuk membuat konfigurasi location .well-known/acme-challenge untuk menerima request dari certbotnya. Ketika kita generate ssl, certbot nanti akan melakukan request ke doman kita dengan format requestnya itu seperti berikut</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">http://&lt;domain.com&gt;/.well-known/acme-challenge/&lt;random</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">key&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Edit file <code class="language-plaintext highlighter-rouge">muhfaris.com.conf</code> dan masukan konfigurasi nginx berikut:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">listen</span><span class="w"> </span><span class="mi">80</span><span class="err">;</span><span class="w">
+    </span><span class="err">listen</span><span class="w"> </span><span class="p">[</span><span class="err">::</span><span class="p">]</span><span class="err">:</span><span class="mi">80</span><span class="err">;</span><span class="w">
+
+    </span><span class="err">server_name</span><span class="w"> </span><span class="err">muhfaris.com;</span><span class="w">
+    </span><span class="err">server_tokens</span><span class="w"> </span><span class="err">off;</span><span class="w">
+
+   </span><span class="err">location</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="err">/.well-known</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">allow</span><span class="w"> </span><span class="err">all;</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+
+   </span><span class="err">location</span><span class="w"> </span><span class="err">^~</span><span class="w"> </span><span class="err">/.well-known/acme-challenge/</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">add_header</span><span class="w"> </span><span class="err">Content-Type</span><span class="w"> </span><span class="err">text/html;</span><span class="w">
+      </span><span class="err">root</span><span class="w"> </span><span class="err">/usr/share/nginx/html;</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+
+    </span><span class="err">location</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="err">https://$host$request_uri;</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="err">default_server;</span><span class="w">
+    </span><span class="err">listen</span><span class="w"> </span><span class="p">[</span><span class="err">::</span><span class="p">]</span><span class="err">:</span><span class="mi">443</span><span class="err">;</span><span class="w">
+
+    </span><span class="err">server_name</span><span class="w"> </span><span class="err">muhfaris.com;</span><span class="w">
+
+    </span><span class="err">#ssl_certificate</span><span class="w"> </span><span class="err">/etc/letsencrypt/live/muhfaris.com/fullchain.pem;</span><span class="w">
+    </span><span class="err">#ssl_certificate_key</span><span class="w"> </span><span class="err">/etc/letsencrypt/live/muhfaris.com/privkey.pem;</span><span class="w">
+
+    </span><span class="err">location</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">#</span><span class="w"> </span><span class="err">proxy_pass</span><span class="w"> </span><span class="err">http://app:</span><span class="mi">3000</span><span class="err">;</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="setup-docker-compose-nginx">Setup docker compose nginx</h3>
+
+<p>Docker sudah kita siapkan selanjutnya kita buat konfigurasi compose file. Image yang akan kita gunakan adalah <code class="language-plaintext highlighter-rouge">nginx:latest</code> , kemudian kita listen port <code class="language-plaintext highlighter-rouge">80</code> dan <code class="language-plaintext highlighter-rouge">443</code> . Pada pembahasan sebelumnya kita sudah bikin folder baru <code class="language-plaintext highlighter-rouge">nginx</code> , folder ini nanti akan kita masukkan sebagai konfigurasi di service nginxnya.</p>
+
+<p>Silahkan buat file <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> kemudian copy-paste konfig berikut:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">version:</span><span class="w"> </span><span class="s2">"3.4"</span><span class="w">
+</span><span class="err">services:</span><span class="w">
+	</span><span class="err">nginx:</span><span class="w">
+	    </span><span class="err">image:</span><span class="w"> </span><span class="err">nginx:latest</span><span class="w">
+	    </span><span class="err">restart:</span><span class="w"> </span><span class="err">always</span><span class="w">
+	    </span><span class="err">ports:</span><span class="w">
+	      </span><span class="err">-</span><span class="w"> </span><span class="s2">"80:80"</span><span class="w">
+	      </span><span class="err">-</span><span class="w"> </span><span class="s2">"443:443"</span><span class="w">
+	    </span><span class="err">volumes:</span><span class="w">
+	      </span><span class="err">-</span><span class="w"> </span><span class="err">$</span><span class="p">{</span><span class="err">HOME</span><span class="p">}</span><span class="err">/nginx/muhfaris.com.conf:/etc/nginx/conf.d/muhfaris.com.conf:ro</span><span class="w">
+	      </span><span class="err">-</span><span class="w"> </span><span class="err">$</span><span class="p">{</span><span class="err">HOME</span><span class="p">}</span><span class="err">/nginx/acme:/usr/share/nginx/html:ro</span><span class="w">
+	      </span><span class="err">-</span><span class="w"> </span><span class="err">/etc/letsencrypt/live/muhfaris.com/fullchain.pem:/etc/letsencrypt/live/muhfaris.com/fullchain.pem:ro</span><span class="w">
+	      </span><span class="err">-</span><span class="w"> </span><span class="err">/etc/letsencrypt/live/muhfaris.com/privkey.pem:/etc/letsencrypt/live/muhfaris.com/privkey.pem:ro</span><span class="w">
+	    </span><span class="err">networks:</span><span class="w">
+	      </span><span class="err">net:</span><span class="w">
+</span><span class="err">networks:</span><span class="w">
+  </span><span class="err">net:</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Ingat untuk selalu ganti domain <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> sesuai dengan domain yang digunakan. Pada <code class="language-plaintext highlighter-rouge">volumes</code> diatas ada folder <code class="language-plaintext highlighter-rouge">acme</code> dan <code class="language-plaintext highlighter-rouge">/etc/letsencrypt</code> yang kita masukkan, ini nanti akan kita buat di langkah selanjutnya.</p>
+
+<p>Setelah langkah-langkah diatas selesai, maka structure foldernya akan berubah seperti berikut:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">.</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
+</span><span class="err">└──</span><span class="w"> </span><span class="err">nginx</span><span class="w">
+    </span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="generate-ssl-domain">Generate ssl domain</h3>
+
+<p>Buat folder baru didalam folder <code class="language-plaintext highlighter-rouge">nginx</code> yang sudah dibuat dengan nama <code class="language-plaintext highlighter-rouge">acme</code> , folder ini nanti sebagai webroot di nginxnya. Maka structure folder akan terlihat seperti berikut:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
+</span><span class="err">└──</span><span class="w">	</span><span class="err">nginx</span><span class="w">
+		</span><span class="err">├──</span><span class="w"> </span><span class="err">acme</span><span class="w">
+		</span><span class="err">│  </span><span class="w"> </span><span class="err">└──</span><span class="w"> </span><span class="err">index.html</span><span class="w">
+		</span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Jalankan nginx yang sudah kita siapkan pada <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> dengan perintah berikut</p>
+
+<p><code class="language-plaintext highlighter-rouge">docker compose up -d</code> . Perintah ini akan menjalankan service yang sudah kita definisikan dalam mode daemon.</p>
+
+<p>Selanjutnya, kita generate certificate menggunakan certbot. Silahkan ganti domain <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> pada perintah certbot berikut sesuai dengan domain yang sudah disiapkan.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">sudo</span><span class="w"> </span><span class="err">certbot</span><span class="w"> </span><span class="err">certonly</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--preferred-challenges</span><span class="w"> </span><span class="err">http</span><span class="w"> </span><span class="err">-d</span><span class="w"> </span><span class="err">muhfaris.com</span><span class="w"> </span><span class="err">--agree-tos</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--manual-public-ip-logging-ok</span><span class="w"> </span><span class="err">--preferred-challenges</span><span class="w"> </span><span class="err">dns</span><span class="mi">-01</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--server</span><span class="w"> </span><span class="err">https://acme-v</span><span class="mi">02</span><span class="err">.api.letsencrypt.org/directory</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--register-unsafely-without-email</span><span class="w"> </span><span class="err">--rsa-key-size</span><span class="w"> </span><span class="mi">4096</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--webroot</span><span class="w"> </span><span class="err">--webroot-path</span><span class="w"> </span><span class="err">$HOME/nginx/acme</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Perintah diatas akan melakukan generate ssl certificate dari domain <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> , pada proses ini certbot akan melakukan verifikasi domain dengan mengakses path <code class="language-plaintext highlighter-rouge">acme-challenge</code>. Jika proses berhasil maka tampilan outputnya seperti berikut:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Press Enter to Continued
+Waiting <span class="k">for </span>verification...
+Cleaning up challenges
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/muhfaris.com/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/muhfaris.com/privkey.pem
+   Your cert will expire on 2023-12-26. To obtain a new or tweaked
+   version of this certificate <span class="k">in </span>the future, simply run certbot
+   again. To non-interactively renew <span class="k">*</span>all<span class="k">*</span> of your certificates, run
+   <span class="s2">"certbot renew"</span>
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let<span class="s1">'s Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+</span></code></pre></div></div>
+
+<h3 id="update-compose-and-load-ssl-cerificate">Update compose and load ssl cerificate</h3>
+
+<p>Tahap ini kita sudah mendapatkan ssl certificate, langkah terakhir adalah uncomment konfigurasi ssl pada nginx.</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+...
+...
+ssl_certificate /etc/letsencrypt/live/muhfaris.com/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/muhfaris.com/privkey.pem;
+}
+</code></pre></div></div>
+
+<p>Setelah itu lakukan update service nginx dengan menjalankan perintah <code class="language-plaintext highlighter-rouge">docker compose restart</code> . Finally, sekarang domain dapat diakses menggunakan protokol https <a href="https://muhfaris.com">https://muhfaris.com</a>.</p>
+
+            </article>
+            <div class="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
+              <a target="_blank" rel="nofollow"
+                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing">Discuss
+                on Twitter</a>
+              •
+              <a target="_blank" rel="noopener noreferrer"
+                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md">View
+                on GitHub</a>
+            </div>
+            <div id="comment">
+              <div class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
+                <script src="https://giscus.app/client.js" data-repo="muhfaris/muhfaris.github.io"
+                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ==" data-category="Comments"
+                  data-category-id="DIC_kwDOBRvyb84CUJNs" data-mapping="url" data-strict="0" data-reactions-enabled="1"
+                  data-emit-metadata="0" data-input-position="bottom" data-theme="dark_tritanopia" data-lang="en"
+                  data-loading="lazy" crossorigin="anonymous" async></script>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div
+              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+              <div class="py-4 xl:py-8">
+                <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  Tags
+                </h2>
+                <div class="flex flex-wrap">
+                  
+                  <a class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                    href="/categories/infra">infra</a>
+                  
+                </div>
+              </div>
+              <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
+                <div>
+                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Previous Article
+                  </h2>
+                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
+                    <a href="/where-clause-sql-di-golang">Mengatasi masalah where clause di Golang</a>
+                  </div>
+                </div>
+                <div>
+                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Next Article
+                  </h2>
+                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
+                    <a href=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 xl:pt-8">
+              <a class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" href="/">← Back to the
+                blog</a>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</main>
+
+    <!-- Footer -->
+    <footer class="text-gray-600 body-font">
+      <div class="dark:bg-gray-900">
+        <div
+          class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col"
+        >
+          <a
+            class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+          >
+          </a>
+          <p class="text-sm dark:text-white sm:ml-6 sm:mt-0 mt-4">
+            © 2023 Muh Faris—
+            <a
+              href="https://twitter.com/_muh_faris"
+              rel="noopener noreferrer"
+              class="dark:text-white ml-1"
+              target="_blank"
+              >@_muh_faris</a
+            >
+          </p>
+          <span
+            class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+          >
+            <a class="ml-3 dark:text-white">
+              <svg
+                fill="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                ></path>
+              </svg>
+            </a>
+            <a class="ml-3 dark:text-white">
+              <svg
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="0"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="none"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
