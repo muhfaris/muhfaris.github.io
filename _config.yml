@@ -15,7 +15,8 @@ plugins:
   - jekyll-sitemap
 toc:
   ordered_list: false
-  list_class: "section-nav list-disc list-inside"
+  list_class: "font-semibold list-disc hover:list-decimal list-inside"
+  sublist_class: "sublist-class list-disc list-inside"
 # Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
@@ -39,6 +40,10 @@ defaults:
       path: "assets/**/*.*"
     values:
       sitemap: false
+  - scope:
+      path: ""
+    values:
+      toc: true
 # These are the defaults
 external_links:
   enabled: true
