@@ -4,3 +4,8 @@
   height: 300px;
   object-position: bottom;
 }
+
+ul.sublist-class.list-disc.list-inside {
+  margin: inherit;
+  padding: revert;
+}
