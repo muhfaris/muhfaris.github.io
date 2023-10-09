@@ -3,12 +3,8 @@ layout: default
 ---
 
 {% assign author = site.authors[page.author] %}
-<div
-  x-data="{atTop:true}"
-  class="post flex flex-col justify-between"
-  :class="{'min-h-screen' :'h-screen'}"
-  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)"
->
+<div x-data="{atTop:true}" class="post flex flex-col justify-between" :class="{'min-h-screen' :'h-screen'}"
+  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)">
   <main class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
     <div class="container mx-auto flex justify-center px-4 text-white">
       <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
@@ -16,8 +12,7 @@ layout: default
           <div class="space-y-1 text-center">
             <div>
               <h1
-                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
-              >
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
                 {{ page.title }}
               </h1>
             </div>
@@ -25,32 +20,21 @@ layout: default
             <dl class="space-y-10">
               <div>
                 <dt class="sr-only">Published on</dt>
-                <dd
-                  class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
-                >
-                  <time datetime="2021-05-02T00:00:00.000Z"
-                    >Sunday, May 2, 2021</time
-                  >
+                <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                  <time datetime="2021-05-02T00:00:00.000Z">Sunday, May 2, 2021</time>
                 </dd>
               </div>
             </dl>
           </div>
         </header>
-        <div
-          class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
-          style="grid-template-rows: auto 1fr"
-        >
-          <dl
-            class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700"
-          >
+        <div class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+          style="grid-template-rows: auto 1fr">
+          <dl class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
             <dt class="sr-only">Authors</dt>
             <dd>
-              <ul
-                class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
-              >
+              <ul class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                 <li class="flex items-center space-x-2">
-                  <span
-                    style="
+                  <span style="
                       box-sizing: border-box;
                       display: inline-block;
                       overflow: hidden;
@@ -63,9 +47,7 @@ layout: default
                       padding: 0px;
                       position: relative;
                       max-width: 100%;
-                    "
-                    ><span
-                      style="
+                    "><span style="
                         box-sizing: border-box;
                         display: block;
                         width: initial;
@@ -76,10 +58,7 @@ layout: default
                         margin: 0px;
                         padding: 0px;
                         max-width: 100%;
-                      "
-                      ><img
-                        alt=""
-                        aria-hidden="true"
+                      "><img alt="" aria-hidden="true"
                         src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2738%27%20height=%2738%27/%3e"
                         style="
                           display: block;
@@ -91,15 +70,8 @@ layout: default
                           border: 0px;
                           margin: 0px;
                           padding: 0px;
-                        " /></span
-                    ><img
-                      alt="avatar"
-                      srcset="/{{ author.avatar }}"
-                      src="/{{ author.avatar }}"
-                      decoding="async"
-                      data-nimg="intrinsic"
-                      class="h-10 w-10 rounded-full"
-                      style="
+                        " /></span><img alt="avatar" srcset="/{{ author.avatar }}" src="/{{ author.avatar }}"
+                      decoding="async" data-nimg="intrinsic" class="h-10 w-10 rounded-full" style="
                         position: absolute;
                         inset: 0px;
                         box-sizing: border-box;
@@ -113,8 +85,7 @@ layout: default
                         max-width: 100%;
                         min-height: 100%;
                         max-height: 100%;
-                      "
-                  /></span>
+                      " /></span>
                   <dl class="whitespace-nowrap text-sm font-medium leading-5">
                     <dt class="sr-only">Name</dt>
                     <dd class="text-gray-900 dark:text-gray-100">
@@ -122,129 +93,79 @@ layout: default
                     </dd>
                     <dt class="sr-only">Twitter</dt>
                     <dd>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="{{ author.twitter }}"
-                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
-                        >@Twitter</a
-                      >
+                      <a target="_blank" rel="noopener noreferrer" href="{{ author.twitter }}"
+                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">@Twitter</a>
                     </dd>
                   </dl>
                 </li>
               </ul>
             </dd>
           </dl>
-          <div
-            class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
-          >
+          <div class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
             {% if page.toc %}
             <div id="table-of-contents" class="bg-gray-900 p-5">
               <h2 class="font-semibold">Table of Contents</h2>
               {% toc %}
             </div>
             {% endif %}
-            <article
-              class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8"
-            >
+            <article class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8">
               {{ content }}
             </article>
             <div class="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-              <a
-                target="_blank"
-                rel="nofollow"
-                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing"
-                >Discuss on Twitter</a
-              >
+              <a target="_blank" rel="nofollow"
+                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing">Discuss
+                on Twitter</a>
               •
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md"
-                >View on GitHub</a
-              >
+              <a target="_blank" rel="noopener noreferrer"
+                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md">View
+                on GitHub</a>
             </div>
             <div id="comment">
-              <div
-                class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
-              >
-                <script
-                  src="https://giscus.app/client.js"
-                  data-repo="muhfaris/muhfaris.github.io"
-                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ=="
-                  data-category="Comments"
-                  data-category-id="DIC_kwDOBRvyb84CUJNs"
-                  data-mapping="url"
-                  data-strict="0"
-                  data-reactions-enabled="1"
-                  data-emit-metadata="0"
-                  data-input-position="bottom"
-                  data-theme="dark_tritanopia"
-                  data-lang="en"
-                  data-loading="lazy"
-                  crossorigin="anonymous"
-                  async
-                ></script>
+              <div class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
+                <script src="https://giscus.app/client.js" data-repo="muhfaris/muhfaris.github.io"
+                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ==" data-category="Comments"
+                  data-category-id="DIC_kwDOBRvyb84CUJNs" data-mapping="url" data-strict="0" data-reactions-enabled="1"
+                  data-emit-metadata="0" data-input-position="bottom" data-theme="dark_tritanopia" data-lang="en"
+                  data-loading="lazy" crossorigin="anonymous" async></script>
               </div>
             </div>
           </div>
           <footer>
             <div
-              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y"
-            >
+              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
               <div class="py-4 xl:py-8">
-                <h2
-                  class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
-                >
+                <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                   Tags
                 </h2>
                 <div class="flex flex-wrap">
                   {% for category in page.categories %}
-                  <a
-                    class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
-                    href="{{ site.baseurl }}/categories.html#{{ category | downcaase }}"
-                    >{{ category | downcase}}</a
-                  >
+                  <a class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                    href="{{ site.baseurl }}/categories/{{ category | downcaase }}">{{ category | downcase}}</a>
                   {% endfor %}
                 </div>
               </div>
-              <div
-                class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8"
-              >
+              <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                 <div>
-                  <h2
-                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
-                  >
+                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                     Previous Article
                   </h2>
-                  <div
-                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
-                  >
-                    <a href="{{ page.previous.url}}"
-                      >{{ page.previous.title }}</a
-                    >
+                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
+                    <a href="{{ page.previous.url}}">{{ page.previous.title }}</a>
                   </div>
                 </div>
                 <div>
-                  <h2
-                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
-                  >
+                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                     Next Article
                   </h2>
-                  <div
-                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
-                  >
+                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
                     <a href="{{ page.next.url }}">{{ page.next.title }}</a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="pt-4 xl:pt-8">
-              <a
-                class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href="/"
-                >← Back to the blog</a
-              >
+              <a class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" href="/">← Back to the
+                blog</a>
             </div>
           </footer>
         </div>
