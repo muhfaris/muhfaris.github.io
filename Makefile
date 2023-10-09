@@ -1,2 +1,7 @@
 dev:
-	jekyll serve -l --trace --incremental --host=127.0.0.1
+	bundle exec jekyll serve
+
+install:
+	gem install bundler jekyll
+	bundle config set --local path 'vendor/bundle'
+	bundle install
