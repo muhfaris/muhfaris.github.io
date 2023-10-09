@@ -1,7 +1,7 @@
 ---
-title: "Categories"
+title: "Blog"
 layout: default
-permalink: "/categories"
+permalink: "/blog"
 ---
 
 <div x-data="{atTop:true}" class="post flex flex-col justify-between" :class="{'min-h-screen' :'h-screen'}"
@@ -12,11 +12,8 @@ permalink: "/categories"
         <div>
           <h1
             class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-            Categories
+            Blog
           </h1>
-          <div>
-            {% capture category_name %}{{ category | first }}{% endcapture %}
-          </div>
         </div>
       </div>
     </header>
@@ -25,10 +22,7 @@ permalink: "/categories"
         <div class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-4 xl:row-span-2 xl:pb-0">
           <div class="max-w-screen-md px-4 md:px-8 mx-auto">
             <div class="">
-              {% for category in site.categories %} {% capture category_name %}
-              {{ category | first }} {% endcapture %} {% assign pages_list =
-              category[1] %} {% for post in pages_list %} {% if post.title !=
-              null %} {% if group == null or group == post.group %}
+              {%for post in site.posts %}
               <div class="prose dark:prose-invert flex flex-col gap-3 py-4 md:py-8">
                 <span class="not-prose">
                   <a href="{{ post.url }}" class="no-underline">
@@ -40,14 +34,12 @@ permalink: "/categories"
                 <span class="block text-sm">
                   {{ post.date | date: '%b %d, %Y' }}
                 </span>
-
                 <blockquote>
                   {{ post.excerpt | strip_html | strip_newlines | truncate:
                   186}}
                 </blockquote>
               </div>
-              {% endif %} {% endif %} {% endfor %} {% assign pages_list = nil %}
-              {% assign group = nil %} {% endfor %}
+              {%endfor%}
             </div>
           </div>
         </div>
