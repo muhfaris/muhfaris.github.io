@@ -3,7 +3,7 @@ name: "Muh Faris"
 title: "Muh Faris"
 description: "little note of a developer for great knowledge"
 logo: "assets/images/logo.png"
-favicon: "assets/images/favicon.ico"
+favicon: "/assets/images/favicon.ico"
 url: "https://muhfaris.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 include: ["_pages"]
