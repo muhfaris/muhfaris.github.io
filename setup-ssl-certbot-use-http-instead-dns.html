@@ -45,8 +45,8 @@
   </script>
 </head>
 
-<body class="">
-  <header class="gaps-4 py-4 dark:bg-gray-900 dark:text-white">
+<body class="w-fit sm:w-auto">
+  <header class="gaps-4 py-4 px-10 dark:bg-gray-900 dark:text-white">
     <div class="container mx-auto flex items-center justify-between">
       <div class="logo flex items-center justify-center text-2xl font-bold">
         <a href="/" class="relative -mt-2">
@@ -59,9 +59,9 @@
       </div>
       <nav>
         <ul class="flex font-semibold text-xl">
-          <li>
-            <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400">/home</a>
-          </li>
+          <!-- <li> -->
+          <!--   <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400">/home</a> -->
+          <!-- </li> -->
           <li>
             <a href="/blog" class="mr-4 dark:text-white dark:hover:text-teal-400">/blog</a>
           </li>
@@ -220,20 +220,20 @@
 
 <h3 id="configuration-nginx">Configuration nginx</h3>
 
-<p>Kita bikin folder baru, anggaplah saat ini kita ada di root directory atau <strong>home</strong> directory terminal. Buat folder <code class="language-plaintext highlighter-rouge">nginx</code> kemudian buat file dengan format <code class="language-plaintext highlighter-rouge">domain.com.conf</code> didalamnya. Jika nama domainnya adalah <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> maka file konfigurasinya adalah <code class="language-plaintext highlighter-rouge">muhfaris.com.conf</code>. Jadi akan terlihat seperti berikut structure foldernya</p>
+<p>Kita bikin folder baru, anggaplah saat ini kita ada di root directory atau <strong>home</strong> directory terminal. Buat folder <code class="language-html highlighter-rouge">nginx</code> kemudian buat file dengan format <code class="language-html highlighter-rouge">domain.com.conf</code> didalamnya. Jika nama domainnya adalah <code class="language-html highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> maka file konfigurasinya adalah <code class="language-html highlighter-rouge">muhfaris.com.conf</code>. Jadi akan terlihat seperti berikut structure foldernya</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">nginx</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">nginx</span><span class="w">
 </span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Selanjutnya kita akan siapkan konfigurasi nginx untuk handle request dari certbot. Pada konfigurasi ini kita perlu untuk membuat konfigurasi location .well-known/acme-challenge untuk menerima request dari certbotnya. Ketika kita generate ssl, certbot nanti akan melakukan request ke doman kita dengan format requestnya itu seperti berikut</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">http://&lt;domain.com&gt;/.well-known/acme-challenge/&lt;random</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">key&gt;</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">http://&lt;domain.com&gt;/.well-known/acme-challenge/&lt;random</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">key&gt;</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Edit file <code class="language-plaintext highlighter-rouge">muhfaris.com.conf</code> dan masukan konfigurasi nginx berikut:</p>
+<p>Edit file <code class="language-html highlighter-rouge">muhfaris.com.conf</code> dan masukan konfigurasi nginx berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">listen</span><span class="w"> </span><span class="mi">80</span><span class="err">;</span><span class="w">
     </span><span class="err">listen</span><span class="w"> </span><span class="p">[</span><span class="err">::</span><span class="p">]</span><span class="err">:</span><span class="mi">80</span><span class="err">;</span><span class="w">
 
@@ -271,11 +271,11 @@
 
 <h3 id="setup-docker-compose-nginx">Setup docker compose nginx</h3>
 
-<p>Docker sudah kita siapkan selanjutnya kita buat konfigurasi compose file. Image yang akan kita gunakan adalah <code class="language-plaintext highlighter-rouge">nginx:latest</code> , kemudian kita listen port <code class="language-plaintext highlighter-rouge">80</code> dan <code class="language-plaintext highlighter-rouge">443</code> . Pada pembahasan sebelumnya kita sudah bikin folder baru <code class="language-plaintext highlighter-rouge">nginx</code> , folder ini nanti akan kita masukkan sebagai konfigurasi di service nginxnya.</p>
+<p>Docker sudah kita siapkan selanjutnya kita buat konfigurasi compose file. Image yang akan kita gunakan adalah <code class="language-html highlighter-rouge">nginx:latest</code> , kemudian kita listen port <code class="language-html highlighter-rouge">80</code> dan <code class="language-html highlighter-rouge">443</code> . Pada pembahasan sebelumnya kita sudah bikin folder baru <code class="language-html highlighter-rouge">nginx</code> , folder ini nanti akan kita masukkan sebagai konfigurasi di service nginxnya.</p>
 
-<p>Silahkan buat file <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> kemudian copy-paste konfig berikut:</p>
+<p>Silahkan buat file <code class="language-html highlighter-rouge">docker-compose.yaml</code> kemudian copy-paste konfig berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">version:</span><span class="w"> </span><span class="s2">"3.4"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">version:</span><span class="w"> </span><span class="s2">"3.4"</span><span class="w">
 </span><span class="err">services:</span><span class="w">
 	</span><span class="err">nginx:</span><span class="w">
 	    </span><span class="err">image:</span><span class="w"> </span><span class="err">nginx:latest</span><span class="w">
@@ -294,11 +294,11 @@
   </span><span class="err">net:</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Ingat untuk selalu ganti domain <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> sesuai dengan domain yang digunakan. Pada <code class="language-plaintext highlighter-rouge">volumes</code> diatas ada folder <code class="language-plaintext highlighter-rouge">acme</code> dan <code class="language-plaintext highlighter-rouge">/etc/letsencrypt</code> yang kita masukkan, ini nanti akan kita buat di langkah selanjutnya.</p>
+<p>Ingat untuk selalu ganti domain <code class="language-html highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> sesuai dengan domain yang digunakan. Pada <code class="language-html highlighter-rouge">volumes</code> diatas ada folder <code class="language-html highlighter-rouge">acme</code> dan <code class="language-html highlighter-rouge">/etc/letsencrypt</code> yang kita masukkan, ini nanti akan kita buat di langkah selanjutnya.</p>
 
 <p>Setelah langkah-langkah diatas selesai, maka structure foldernya akan berubah seperti berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">.</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">.</span><span class="w">
 </span><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
 </span><span class="err">└──</span><span class="w"> </span><span class="err">nginx</span><span class="w">
     </span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
@@ -306,22 +306,22 @@
 
 <h3 id="generate-ssl-domain">Generate ssl domain</h3>
 
-<p>Buat folder baru didalam folder <code class="language-plaintext highlighter-rouge">nginx</code> yang sudah dibuat dengan nama <code class="language-plaintext highlighter-rouge">acme</code> , folder ini nanti sebagai webroot di nginxnya. Maka structure folder akan terlihat seperti berikut:</p>
+<p>Buat folder baru didalam folder <code class="language-html highlighter-rouge">nginx</code> yang sudah dibuat dengan nama <code class="language-html highlighter-rouge">acme</code> , folder ini nanti sebagai webroot di nginxnya. Maka structure folder akan terlihat seperti berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
 </span><span class="err">└──</span><span class="w">	</span><span class="err">nginx</span><span class="w">
 		</span><span class="err">├──</span><span class="w"> </span><span class="err">acme</span><span class="w">
 		</span><span class="err">│  </span><span class="w"> </span><span class="err">└──</span><span class="w"> </span><span class="err">index.html</span><span class="w">
 		</span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Jalankan nginx yang sudah kita siapkan pada <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> dengan perintah berikut</p>
+<p>Jalankan nginx yang sudah kita siapkan pada <code class="language-html highlighter-rouge">docker-compose.yaml</code> dengan perintah berikut</p>
 
-<p><code class="language-plaintext highlighter-rouge">docker compose up -d</code> . Perintah ini akan menjalankan service yang sudah kita definisikan dalam mode daemon.</p>
+<p><code class="language-html highlighter-rouge">docker compose up -d</code> . Perintah ini akan menjalankan service yang sudah kita definisikan dalam mode daemon.</p>
 
-<p>Selanjutnya, kita generate certificate menggunakan certbot. Silahkan ganti domain <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> pada perintah certbot berikut sesuai dengan domain yang sudah disiapkan.</p>
+<p>Selanjutnya, kita generate certificate menggunakan certbot. Silahkan ganti domain <code class="language-html highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> pada perintah certbot berikut sesuai dengan domain yang sudah disiapkan.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">sudo</span><span class="w"> </span><span class="err">certbot</span><span class="w"> </span><span class="err">certonly</span><span class="w"> </span><span class="err">\</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">sudo</span><span class="w"> </span><span class="err">certbot</span><span class="w"> </span><span class="err">certonly</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="err">--preferred-challenges</span><span class="w"> </span><span class="err">http</span><span class="w"> </span><span class="err">-d</span><span class="w"> </span><span class="err">muhfaris.com</span><span class="w"> </span><span class="err">--agree-tos</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="err">--manual-public-ip-logging-ok</span><span class="w"> </span><span class="err">--preferred-challenges</span><span class="w"> </span><span class="err">dns</span><span class="mi">-01</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="err">--server</span><span class="w"> </span><span class="err">https://acme-v</span><span class="mi">02</span><span class="err">.api.letsencrypt.org/directory</span><span class="w"> </span><span class="err">\</span><span class="w">
@@ -329,9 +329,9 @@
 </span><span class="err">--webroot</span><span class="w"> </span><span class="err">--webroot-path</span><span class="w"> </span><span class="err">$HOME/nginx/acme</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Perintah diatas akan melakukan generate ssl certificate dari domain <code class="language-plaintext highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> , pada proses ini certbot akan melakukan verifikasi domain dengan mengakses path <code class="language-plaintext highlighter-rouge">acme-challenge</code>. Jika proses berhasil maka tampilan outputnya seperti berikut:</p>
+<p>Perintah diatas akan melakukan generate ssl certificate dari domain <code class="language-html highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> , pada proses ini certbot akan melakukan verifikasi domain dengan mengakses path <code class="language-html highlighter-rouge">acme-challenge</code>. Jika proses berhasil maka tampilan outputnya seperti berikut:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Press Enter to Continued
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>Press Enter to Continued
 Waiting <span class="k">for </span>verification...
 Cleaning up challenges
 
@@ -355,7 +355,7 @@ IMPORTANT NOTES:
 
 <p>Tahap ini kita sudah mendapatkan ssl certificate, langkah terakhir adalah uncomment konfigurasi ssl pada nginx.</p>
 
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>server {
 ...
 ...
 ssl_certificate /etc/letsencrypt/live/muhfaris.com/fullchain.pem;
@@ -363,7 +363,7 @@ ssl_certificate_key /etc/letsencrypt/live/muhfaris.com/privkey.pem;
 }
 </code></pre></div></div>
 
-<p>Setelah itu lakukan update service nginx dengan menjalankan perintah <code class="language-plaintext highlighter-rouge">docker compose restart</code> . Finally, sekarang domain dapat diakses menggunakan protokol https <a href="https://muhfaris.com">https://muhfaris.com</a>.</p>
+<p>Setelah itu lakukan update service nginx dengan menjalankan perintah <code class="language-html highlighter-rouge">docker compose restart</code> . Finally, sekarang domain dapat diakses menggunakan protokol https <a href="https://muhfaris.com">https://muhfaris.com</a>.</p>
 
             </article>
             <div class="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">

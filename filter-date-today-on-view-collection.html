@@ -45,8 +45,8 @@
   </script>
 </head>
 
-<body class="">
-  <header class="gaps-4 py-4 dark:bg-gray-900 dark:text-white">
+<body class="w-fit sm:w-auto">
+  <header class="gaps-4 py-4 px-10 dark:bg-gray-900 dark:text-white">
     <div class="container mx-auto flex items-center justify-between">
       <div class="logo flex items-center justify-center text-2xl font-bold">
         <a href="/" class="relative -mt-2">
@@ -59,9 +59,9 @@
       </div>
       <nav>
         <ul class="flex font-semibold text-xl">
-          <li>
-            <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400">/home</a>
-          </li>
+          <!-- <li> -->
+          <!--   <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400">/home</a> -->
+          <!-- </li> -->
           <li>
             <a href="/blog" class="mr-4 dark:text-white dark:hover:text-teal-400">/blog</a>
           </li>
@@ -213,10 +213,11 @@
 
 <p>Issue yang muncul adalah Customer tidak dapat melakukan redeem voucer yang sudah dia dapatkan, setelah ditelusuri permasalahannya ada pada filter date today yang tidak relevan.</p>
 
-<p>Filter date today yang digunakan adalah menggunakan <code class="language-plaintext highlighter-rouge">new Date()</code> , jadi helper tersebut akan mereturn sebuah string date hari ini. Disini anggaplah kita membuat view collection kemarin dengan filternya menggunakan <code class="language-plaintext highlighter-rouge">new Date()</code> maka hari ini ketika kita check querynya kembali, filter tersebut akan didefine pada mongodb dengan filter date adalah kemarin bukan hari ini.</p>
+<p>Filter date today yang digunakan adalah menggunakan <code class="language-html highlighter-rouge">new Date()</code> , jadi helper tersebut akan mereturn sebuah string date hari ini. Disini anggaplah kita membuat view collection kemarin dengan filternya menggunakan <code class="language-html highlighter-rouge">new Date()</code> maka hari ini ketika kita check querynya kembali, filter tersebut akan didefine pada mongodb dengan filter date adalah kemarin bukan hari ini.</p>
 
 <p>Sebagai gambaran, ketika kita membuat view collection <strong>baru</strong> dengan filter date hari ini maka aggregate yang digunakan seperti berikut:</p>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="p">{</span><span class="w">
  </span><span class="nl">"$match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"available_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">$lte:</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">Date()</span><span class="p">,</span><span class="w">
@@ -230,7 +231,7 @@
 
 <p>Misal besok kita check lagi query yang sudah dibuat, query diatas akan berubah menjadi seperti berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="p">{</span><span class="w">
  </span><span class="nl">"$match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"available_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">$lte:</span><span class="w"> </span><span class="err">ISODate(</span><span class="s2">"2023-10-10T17:00:00.000+00:00"</span><span class="err">)</span><span class="p">,</span><span class="w">
@@ -242,59 +243,59 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>seharusnya filter date tersebut tetap menampilkan <code class="language-plaintext highlighter-rouge">new Date()</code> karena yang diinginkan adalah mendapatkan data voucher yang masih available, jika filter tersebut berubah di kemudian hari 1 bulan, atau 1 tahun kedepan atau 2 tahun kedepan voucher yang masa berlakunya lama tidak dapat diambil juga.</p>
+<p>seharusnya filter date tersebut tetap menampilkan <code class="language-html highlighter-rouge">new Date()</code> karena yang diinginkan adalah mendapatkan data voucher yang masih available, jika filter tersebut berubah di kemudian hari 1 bulan, atau 1 tahun kedepan atau 2 tahun kedepan voucher yang masa berlakunya lama tidak dapat diambil juga.</p>
 
 <h3 id="workaround">Workaround</h3>
 
-<p>Setelah beberapa kali riset, saya dapati pada mongodb mempunyai fungsi <a href="https://www.mongodb.com/docs/v7.0/reference/operator/query/expr/">$expr</a> yang dapat kita manfaatkan. Dengan fungsi ini dikombinasikan untuk mendapatkan date hari ini menggunakan <code class="language-plaintext highlighter-rouge">NOW</code> dari pada <code class="language-plaintext highlighter-rouge">new Date()</code>.</p>
+<p>Setelah beberapa kali riset, saya dapati pada mongodb mempunyai fungsi <a href="https://www.mongodb.com/docs/v7.0/reference/operator/query/expr/">$expr</a> yang dapat kita manfaatkan. Dengan fungsi ini dikombinasikan untuk mendapatkan date hari ini menggunakan <code class="language-html highlighter-rouge">NOW</code> dari pada <code class="language-html highlighter-rouge">new Date()</code>.</p>
 
-<p>Pada filter sebelumnya akan diubah dan disatukan dalam <code class="language-plaintext highlighter-rouge">and</code> , sehingga filter tersebut masih tetep sama, akan mengambil voucher yang available dan belum expired.</p>
+<p>Pada filter sebelumnya akan diubah dan disatukan dalam <code class="language-html highlighter-rouge">and</code> , sehingga filter tersebut masih tetep sama, akan mengambil voucher yang available dan belum expired.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="nl">"$match"</span><span class="p">:{</span><span class="w">
-		</span><span class="err">$and:</span><span class="w"> </span><span class="p">[</span><span class="w">
-		    </span><span class="p">{</span><span class="w">
-		      </span><span class="err">$expr:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		        </span><span class="err">$lte:</span><span class="w"> </span><span class="p">[</span><span class="w">
-		          </span><span class="p">{</span><span class="w">
-		            </span><span class="err">$dateToString:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		              </span><span class="err">format:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
-		              </span><span class="err">date:</span><span class="w"> </span><span class="s2">"$available_at"</span><span class="p">,</span><span class="w">
-		            </span><span class="p">},</span><span class="w">
-		          </span><span class="p">},</span><span class="w">
-		          </span><span class="p">{</span><span class="w">
-		            </span><span class="err">$dateToString:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		              </span><span class="err">format:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
-		              </span><span class="err">date:</span><span class="w"> </span><span class="s2">"$$NOW"</span><span class="p">,</span><span class="w">
-		            </span><span class="p">},</span><span class="w">
-		          </span><span class="p">},</span><span class="w">
-		        </span><span class="p">],</span><span class="w">
-		      </span><span class="p">},</span><span class="w">
-		    </span><span class="p">},</span><span class="w">
-		    </span><span class="p">{</span><span class="w">
-		      </span><span class="err">$expr:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		        </span><span class="err">$gt:</span><span class="w"> </span><span class="p">[</span><span class="w">
-		          </span><span class="p">{</span><span class="w">
-		            </span><span class="err">$dateToString:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		              </span><span class="err">format:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
-		              </span><span class="err">date:</span><span class="w"> </span><span class="s2">"$expired_at"</span><span class="p">,</span><span class="w">
-		            </span><span class="p">},</span><span class="w">
-		          </span><span class="p">},</span><span class="w">
-		          </span><span class="p">{</span><span class="w">
-		            </span><span class="err">$dateToString:</span><span class="w"> </span><span class="p">{</span><span class="w">
-		              </span><span class="err">format:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
-		              </span><span class="err">date:</span><span class="w"> </span><span class="s2">"$$NOW"</span><span class="p">,</span><span class="w">
-		            </span><span class="p">},</span><span class="w">
-		          </span><span class="p">},</span><span class="w">
-		        </span><span class="p">],</span><span class="w">
-		      </span><span class="p">},</span><span class="w">
-		    </span><span class="p">},</span><span class="w">
-		  </span><span class="p">],</span><span class="w">
-	</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"$match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"$and"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$expr"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"$lte"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"$dateToString"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$available_at"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"$dateToString"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$$NOW"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$expr"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"$gt"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"$dateToString"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$expired_at"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"$dateToString"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$$NOW"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Next day coba check kembali apakah query berubah seperti halnya waktu menggunakan <code class="language-plaintext highlighter-rouge">new Date</code> atau tidak, ini hanya untuk make sure saja jika kalian masih ragu.</p>
+<p>Next day coba check kembali apakah query berubah seperti halnya waktu menggunakan <code class="language-html highlighter-rouge">new Date</code> atau tidak, ini hanya untuk make sure saja jika kalian masih ragu.</p>
 
             </article>
             <div class="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">

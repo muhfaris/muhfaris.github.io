@@ -45,8 +45,8 @@
   </script>
 </head>
 
-<body class="">
-  <header class="gaps-4 py-4 dark:bg-gray-900 dark:text-white">
+<body class="w-fit sm:w-auto">
+  <header class="gaps-4 py-4 px-10 dark:bg-gray-900 dark:text-white">
     <div class="container mx-auto flex items-center justify-between">
       <div class="logo flex items-center justify-center text-2xl font-bold">
         <a href="/" class="relative -mt-2">
@@ -59,9 +59,9 @@
       </div>
       <nav>
         <ul class="flex font-semibold text-xl">
-          <li>
-            <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400">/home</a>
-          </li>
+          <!-- <li> -->
+          <!--   <a href="/" class="mr-4 dark:text-white dark:hover:text-teal-400">/home</a> -->
+          <!-- </li> -->
           <li>
             <a href="/blog" class="mr-4 dark:text-white dark:hover:text-teal-400">/blog</a>
           </li>
@@ -196,7 +196,7 @@ filter.</p>
 
 <p>Kita coba bikin object video untuk lebih mudah memahaminya:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">Video</span> <span class="k">struct</span> <span class="p">{</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="k">type</span> <span class="n">Video</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="n">id</span> <span class="kt">string</span>
     <span class="n">name</span> <span class="kt">string</span>
     <span class="n">category_id</span> <span class="kt">string</span>
@@ -216,9 +216,9 @@ filter.</p>
 
 </code></pre></div></div>
 
-<p>Untuk menampilkan list video dengan filter date, disini menggunakan field <code class="language-plaintext highlighter-rouge">created_at</code> query yang digunakan kurang lebih seperti berikut:</p>
+<p>Untuk menampilkan list video dengan filter date, disini menggunakan field <code class="language-html highlighter-rouge">created_at</code> query yang digunakan kurang lebih seperti berikut:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">GetAllVideo</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">params</span> <span class="n">domain</span><span class="o">.</span><span class="n">SearchParams</span><span class="p">)(</span><span class="n">domain</span><span class="o">.</span><span class="n">Videos</span><span class="p">,</span> <span class="kt">error</span><span class="p">){</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="k">func</span> <span class="n">GetAllVideo</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">params</span> <span class="n">domain</span><span class="o">.</span><span class="n">SearchParams</span><span class="p">)(</span><span class="n">domain</span><span class="o">.</span><span class="n">Videos</span><span class="p">,</span> <span class="kt">error</span><span class="p">){</span>
     <span class="o">...</span>
     <span class="o">...</span>
     <span class="k">var</span> <span class="p">(</span>
@@ -261,7 +261,7 @@ filter.</p>
 <p>Bagaimana jika filter date diatas dikombinasikan dengan filter category?
 Harus memperhatikan urutan pernulisan kode sqlnya, karena pada kode diatas placeholder SQL yang digunakan itu dihardcode. Belum lagi jika filternya hanya category saja tanpa date.</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="o">...</span>
 <span class="o">...</span>
 <span class="o">...</span>
     <span class="k">var</span> <span class="p">(</span>
@@ -298,9 +298,9 @@ Harus memperhatikan urutan pernulisan kode sqlnya, karena pada kode diatas place
 
 <p>Bagaimana jika bikin library general yang bisa bantu untuk mengatasi hal tersebut?</p>
 
-<p>Fungsinya itu sederhana, dia hanya menampung kondisi yang valid dalam suatu variabel kemudian ada method lain untuk menggabungkan kondisi secara keseluruhan termasuk query <code class="language-plaintext highlighter-rouge">WHERE</code>. Pertama bikin fungsinya terlebih dahulu, dengan beberapa parameter.</p>
+<p>Fungsinya itu sederhana, dia hanya menampung kondisi yang valid dalam suatu variabel kemudian ada method lain untuk menggabungkan kondisi secara keseluruhan termasuk query <code class="language-html highlighter-rouge">WHERE</code>. Pertama bikin fungsinya terlebih dahulu, dengan beberapa parameter.</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>
 <span class="k">func</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span><span class="n">SQLCondition</span><span class="p">)</span> <span class="n">Where</span><span class="p">(</span><span class="n">exist</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">query</span> <span class="kt">string</span><span class="p">,</span> <span class="n">value</span> <span class="k">interface</span><span class="p">{})</span> <span class="o">*</span><span class="n">SQLCondition</span> <span class="p">{</span>
 	<span class="k">const</span> <span class="n">dollarSymbol</span> <span class="o">=</span> <span class="s">"$"</span>
 
@@ -329,10 +329,10 @@ Harus memperhatikan urutan pernulisan kode sqlnya, karena pada kode diatas place
 
 </code></pre></div></div>
 
-<p>Fungsi diatas menerima hasil kondisi, jika hasilnya <code class="language-plaintext highlighter-rouge">true</code> maka query akan ditampung dalam variabel <code class="language-plaintext highlighter-rouge">wheres</code> dan jika variable <code class="language-plaintext highlighter-rouge">value</code> tidak <code class="language-plaintext highlighter-rouge">nil</code> maka akan ditampung juga dalam variabel <code class="language-plaintext highlighter-rouge">Args</code>.
-Pada fungsi diatas, ada logik untuk mendeteksi simbol dollar <code class="language-plaintext highlighter-rouge">$</code>. Ini adalah untuk membuat placeholder query itu secara dinamis, akan bertambah sesuai dengan kondisi dan existing kondisi sebelumnya. Sekarang kita lengkapin kode lainnya supaya bisa digunakan</p>
+<p>Fungsi diatas menerima hasil kondisi, jika hasilnya <code class="language-html highlighter-rouge">true</code> maka query akan ditampung dalam variabel <code class="language-html highlighter-rouge">wheres</code> dan jika variable <code class="language-html highlighter-rouge">value</code> tidak <code class="language-html highlighter-rouge">nil</code> maka akan ditampung juga dalam variabel <code class="language-html highlighter-rouge">Args</code>.
+Pada fungsi diatas, ada logik untuk mendeteksi simbol dollar <code class="language-html highlighter-rouge">$</code>. Ini adalah untuk membuat placeholder query itu secara dinamis, akan bertambah sesuai dengan kondisi dan existing kondisi sebelumnya. Sekarang kita lengkapin kode lainnya supaya bisa digunakan</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>
 <span class="k">type</span> <span class="n">SQLCondition</span> <span class="k">struct</span> <span class="p">{</span>
 	<span class="n">defaultQuery</span> <span class="kt">string</span>
 	<span class="n">wheres</span>       <span class="kt">string</span>
@@ -367,7 +367,7 @@ Pada fungsi diatas, ada logik untuk mendeteksi simbol dollar <code class="langua
 
 <p>Okay, kita bandingkan penulisan query pada case sebelumnya dengan menggunakan library yang baru saja dibuat.</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>
     <span class="n">sqlCondition</span> <span class="o">:=</span> <span class="n">NewSQLCondition</span><span class="p">()</span>
     <span class="n">sqlCondition</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">Date</span> <span class="o">!=</span><span class="s">""</span><span class="p">,</span> <span class="s">"created_at=$"</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span><span class="o">.</span><span class="n">And</span><span class="p">()</span><span class="o">.</span>
     <span class="n">Where</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">Category</span> <span class="o">!=</span> <span class="s">""</span><span class="p">,</span> <span class="s">"category_id=$"</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">CategoryID</span><span class="p">)</span>
