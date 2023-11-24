@@ -25,11 +25,12 @@ berdasarkan informasi dari website resmi mongodb, contoh beberapa kasus yang dap
 
 ### Issue
 
-Issue yang muncul adalah Customer tidak dapat melakukan redeem voucer yang sudah dia dapatkan, setelah ditelusuri permasalahannya ada pada filter date today yang tidak relevan. 
+Issue yang muncul adalah Customer tidak dapat melakukan redeem voucer yang sudah dia dapatkan, setelah ditelusuri permasalahannya ada pada filter date today yang tidak relevan.
 
 Filter date today yang digunakan adalah menggunakan `new Date()` , jadi helper tersebut akan mereturn sebuah string date hari ini. Disini anggaplah kita membuat view collection kemarin dengan filternya menggunakan `new Date()` maka hari ini ketika kita check querynya kembali, filter tersebut akan didefine pada mongodb dengan filter date adalah kemarin bukan hari ini.
 
 Sebagai gambaran, ketika kita membuat view collection **baru** dengan filter date hari ini maka aggregate yang digunakan seperti berikut:
+
 ```json
 {
  "$match": {
@@ -68,46 +69,46 @@ Pada filter sebelumnya akan diubah dan disatukan dalam `and` , sehingga filter t
 
 ```json
 {
-	"$match":{
-		$and: [
-		    {
-		      $expr: {
-		        $lte: [
-		          {
-		            $dateToString: {
-		              format: "%Y-%m-%d",
-		              date: "$available_at",
-		            },
-		          },
-		          {
-		            $dateToString: {
-		              format: "%Y-%m-%d",
-		              date: "$$NOW",
-		            },
-		          },
-		        ],
-		      },
-		    },
-		    {
-		      $expr: {
-		        $gt: [
-		          {
-		            $dateToString: {
-		              format: "%Y-%m-%d",
-		              date: "$expired_at",
-		            },
-		          },
-		          {
-		            $dateToString: {
-		              format: "%Y-%m-%d",
-		              date: "$$NOW",
-		            },
-		          },
-		        ],
-		      },
-		    },
-		  ],
-	}
+  "$match": {
+    "$and": [
+      {
+        "$expr": {
+          "$lte": [
+            {
+              "$dateToString": {
+                "format": "%Y-%m-%d",
+                "date": "$available_at"
+              }
+            },
+            {
+              "$dateToString": {
+                "format": "%Y-%m-%d",
+                "date": "$$NOW"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "$expr": {
+          "$gt": [
+            {
+              "$dateToString": {
+                "format": "%Y-%m-%d",
+                "date": "$expired_at"
+              }
+            },
+            {
+              "$dateToString": {
+                "format": "%Y-%m-%d",
+                "date": "$$NOW"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
 ```
 
