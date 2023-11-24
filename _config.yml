@@ -1,12 +1,13 @@
+---
 # site
-name: "Muh Faris"
-title: "Muh Faris"
-description: "little note of a developer for great knowledge"
-logo: "assets/images/logo.png"
-favicon: "/assets/images/favicon.ico"
-url: "https://muhfaris.com" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-include: ["_pages"]
+name: Muh Faris
+title: Muh Faris
+description: little note of a developer for great knowledge
+logo: assets/images/logo.png
+favicon: /assets/images/favicon.ico
+url: https://muhfaris.com  # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ''  # the subpath of your site, e.g. /blog
+include: [_pages]
 permalink: /:title
 plugins:
   - jekyll-postcss
@@ -15,33 +16,41 @@ plugins:
   - jekyll-sitemap
 toc:
   ordered_list: false
-  list_class: "font-semibold list-disc hover:list-decimal list-inside"
-  sublist_class: "sublist-class list-disc list-inside"
+  list_class: font-semibold list-disc hover:list-decimal list-inside
+  sublist_class: sublist-class list-disc list-inside
 # Markdown and syntax highlight
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class: highlight w-full
+    span:
+      line_numbers: false
 # seo - https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 twitter:
-  username: "_muh_faris"
+  username: _muh_faris
 authors:
   muhfaris:
     name: Muh Faris
     avatar: assets/images/faris.jpg
-    bio: "Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang"
+    bio: Maksimalkan usaha kamu atas apa yang kamu kerjakan sekarang
     twitter: https://twitter.com/_muh_faris
 # Sitemap settings
 defaults:
   - scope:
-      path: "_posts"
+      path: _posts
     values:
       layout: post
       author: muhfaris
   - scope:
-      path: "assets/**/*.*"
+      path: assets/**/*.*
     values:
       sitemap: false
   - scope:
-      path: ""
+      path: ''
     values:
       toc: true
 # These are the defaults
