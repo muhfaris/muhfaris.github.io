@@ -11,7 +11,7 @@ categories:
 ---
 
 Bahasa pemograman Golang memiliki jadwal rilis setiap 6 bulan sekali, dengan penjadwalan 3 bulan untuk development dan 3 bulan untuk testing. Setiap rilisnya, ada perubahan yang perlu di perhatikan.
-Pada halaman (https://go.dev/doc/devel/release)[Release History], kita dapat melihat setiap perubahan yang dilakukan.
+Pada halaman [Release History](https://go.dev/doc/devel/release), kita dapat melihat setiap perubahan yang dilakukan.
 
 ## Issue
 
