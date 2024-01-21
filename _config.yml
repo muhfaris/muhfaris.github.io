@@ -5,8 +5,8 @@ title: Muh Faris
 description: little note of a developer for great knowledge
 logo: assets/images/logo.png
 favicon: /assets/images/favicon.ico
-url: https://muhfaris.com  # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: ''  # the subpath of your site, e.g. /blog
+url: https://muhfaris.com # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
 include: [_pages]
 permalink: /:title
 plugins:
@@ -14,6 +14,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-sitemap
+  - jekyll-archives
+jekyll-archives:
+  enabled: [categories]
+  layout: category
+  permalink:
+    category: /category/:name
 toc:
   ordered_list: false
   list_class: font-semibold list-disc hover:list-decimal list-inside
@@ -50,7 +56,7 @@ defaults:
     values:
       sitemap: false
   - scope:
-      path: ''
+      path: ""
     values:
       toc: true
 # These are the defaults

@@ -16,3 +16,4 @@ gem "jekyll-postcss"
 gem 'jekyll-seo-tag'
 gem 'jekyll-toc' 
 gem 'jekyll-sitemap'
+gem 'jekyll-archives'

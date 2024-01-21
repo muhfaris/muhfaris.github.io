@@ -14,6 +14,9 @@ permalink: "/categories"
             class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
             Categories
           </h1>
+          <div class="">{{site| debug}}</div>
+          <div class="">{{page.url| debug}}</div>
+          <div class="">{{ page.url.params| debug}}</div>
           <div>
             {% capture category_name %}{{ category | first }}{% endcapture %}
           </div>

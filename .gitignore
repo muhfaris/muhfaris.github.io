@@ -8,3 +8,6 @@ tags
 
 ### NPM ###
 /node_modules/
+
+### VIM ###
+Session.vim
