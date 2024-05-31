@@ -7,7 +7,6 @@ description: >-
   mengkonfigurasinya.
 author: muhfaris
 image: assets/images/manual-trigger-ci-cd-github.png
-toc: true
 categories:
   - development
 ---
