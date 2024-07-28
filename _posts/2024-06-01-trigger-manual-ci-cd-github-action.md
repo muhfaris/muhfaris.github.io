@@ -10,6 +10,7 @@ image: assets/images/manual-trigger-ci-cd-github.png
 categories:
   - development
 ---
+
 ## Problem
 
 Masalah yang terjadi adalah, untuk trigger manual ci/cd di github action itu tidak bisa dan dari UI github pada menu Action pun juga tidak tersedia. Kenapa ini penting? dari pengalaman saya, selama ini menggunakan github sebagai repository dan menggunakan portainer sebagai management containernya bukan kubernetes.
@@ -23,6 +24,8 @@ Untuk langkah-langkahnya sebagai berikut:
 
 1. Buat file `.github/workflows/manual-trigger-ci-cd.yml` di folder `.github/workflows` di repository kita.
 2. Copy kode berikut ke file `manual-trigger-ci-cd.yml`
+
+{:.w-96 .overflow-x-auto .md:w-full}
 
 ```yaml
 ---
@@ -71,6 +74,7 @@ jobs:
 
 Pada konfigurasi di atas, kita menggunakan `workflow_dispatch` untuk mengatur trigger manual di github action. Kemudian pada bagian `jobs` adalah task yang akan dijalankan setelah kita submit trigger manual tersebut. Bagaimana tampilan UInya di github itu akan seperti berikut:
 
+{:.w-96 .md:w-full}
 ![workflow_dispatch](assets/images/manual-trigger-ci-cd-github.png)
 
 Referensi:

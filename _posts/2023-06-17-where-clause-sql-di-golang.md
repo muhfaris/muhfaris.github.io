@@ -20,6 +20,8 @@ filter.
 
 Kita coba bikin object video untuk lebih mudah memahaminya:
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```go
 type Video struct {
     id string
@@ -42,6 +44,8 @@ type VideoView struct {
 ```
 
 Untuk menampilkan list video dengan filter date, disini menggunakan field `created_at` query yang digunakan kurang lebih seperti berikut:
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```go
 func GetAllVideo(ctx context.Context, params domain.SearchParams)(domain.Videos, error){
@@ -87,6 +91,8 @@ func GetAllVideo(ctx context.Context, params domain.SearchParams)(domain.Videos,
 Bagaimana jika filter date diatas dikombinasikan dengan filter category?
 Harus memperhatikan urutan pernulisan kode sqlnya, karena pada kode diatas placeholder SQL yang digunakan itu dihardcode. Belum lagi jika filternya hanya category saja tanpa date.
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```go
 ...
 ...
@@ -127,8 +133,9 @@ Bagaimana jika bikin library general yang bisa bantu untuk mengatasi hal tersebu
 
 Fungsinya itu sederhana, dia hanya menampung kondisi yang valid dalam suatu variabel kemudian ada method lain untuk menggabungkan kondisi secara keseluruhan termasuk query `WHERE`. Pertama bikin fungsinya terlebih dahulu, dengan beberapa parameter.
 
-```go
+{:.w-80 .overflow-x-auto .md:w-full}
 
+```go
 func (s *SQLCondition) Where(exist bool, query string, value interface{}) *SQLCondition {
 	const dollarSymbol = "$"
 
@@ -159,6 +166,8 @@ func (s *SQLCondition) Where(exist bool, query string, value interface{}) *SQLCo
 
 Fungsi diatas menerima hasil kondisi, jika hasilnya `true` maka query akan ditampung dalam variabel `wheres` dan jika variable `value` tidak `nil` maka akan ditampung juga dalam variabel `Args`.
 Pada fungsi diatas, ada logik untuk mendeteksi simbol dollar `$`. Ini adalah untuk membuat placeholder query itu secara dinamis, akan bertambah sesuai dengan kondisi dan existing kondisi sebelumnya. Sekarang kita lengkapin kode lainnya supaya bisa digunakan
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```go
 
@@ -195,6 +204,8 @@ func (s *SQLCondition) Build() string {
 ```
 
 Okay, kita bandingkan penulisan query pada case sebelumnya dengan menggunakan library yang baru saja dibuat.
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```go
 

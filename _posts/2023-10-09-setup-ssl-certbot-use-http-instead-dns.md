@@ -7,6 +7,7 @@ toc: true
 categories:
   - infra
 ---
+
 ## Introduction
 
 Installasi ssl pada suatu domain supaya dapat diakses secara aman dengan https://, perlu banget untuk menambahkah certificate dari domain tersebut. Generate certificate domain ini kita bisa manfaatkan tool certbot instead kita generate manual sendiri.
@@ -30,6 +31,8 @@ Beberapa komponen yang perlu disiapkan sebelum kita mulai untuk installasi ssl p
 
 Kita bikin folder baru, anggaplah saat ini kita ada di root directory atau **home** directory terminal. Buat folder `nginx` kemudian buat file dengan format `domain.com.conf` didalamnya. Jika nama domainnya adalah `[muhfaris.com](http://muhfaris.com)` maka file konfigurasinya adalah `muhfaris.com.conf`. Jadi akan terlihat seperti berikut structure foldernya
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```json
 nginx
 └── muhfaris.com.conf
@@ -37,11 +40,15 @@ nginx
 
 Selanjutnya kita akan siapkan konfigurasi nginx untuk handle request dari certbot. Pada konfigurasi ini kita perlu untuk membuat konfigurasi location .well-known/acme-challenge untuk menerima request dari certbotnya. Ketika kita generate ssl, certbot nanti akan melakukan request ke doman kita dengan format requestnya itu seperti berikut
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```json
 http://<domain.com>/.well-known/acme-challenge/<random unique key>
 ```
 
 Edit file `muhfaris.com.conf` dan masukan konfigurasi nginx berikut:
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```json
 server {
@@ -86,6 +93,8 @@ Docker sudah kita siapkan selanjutnya kita buat konfigurasi compose file. Image 
 
 Silahkan buat file `docker-compose.yaml` kemudian copy-paste konfig berikut:
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```json
 version: "3.4"
 services:
@@ -110,6 +119,8 @@ Ingat untuk selalu ganti domain `[muhfaris.com](http://muhfaris.com)` sesuai den
 
 Setelah langkah-langkah diatas selesai, maka structure foldernya akan berubah seperti berikut:
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```json
 .
 ├── docker-compose.yaml
@@ -120,6 +131,8 @@ Setelah langkah-langkah diatas selesai, maka structure foldernya akan berubah se
 ### Generate ssl domain
 
 Buat folder baru didalam folder `nginx` yang sudah dibuat dengan nama `acme` , folder ini nanti sebagai webroot di nginxnya. Maka structure folder akan terlihat seperti berikut:
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```json
 ├── docker-compose.yaml
@@ -135,6 +148,8 @@ Jalankan nginx yang sudah kita siapkan pada `docker-compose.yaml` dengan perinta
 
 Selanjutnya, kita generate certificate menggunakan certbot. Silahkan ganti domain `[muhfaris.com](http://muhfaris.com)` pada perintah certbot berikut sesuai dengan domain yang sudah disiapkan.
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```json
 sudo certbot certonly \
 --preferred-challenges http -d muhfaris.com --agree-tos \
@@ -145,6 +160,8 @@ sudo certbot certonly \
 ```
 
 Perintah diatas akan melakukan generate ssl certificate dari domain `[muhfaris.com](http://muhfaris.com)` , pada proses ini certbot akan melakukan verifikasi domain dengan mengakses path `acme-challenge`. Jika proses berhasil maka tampilan outputnya seperti berikut:
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```bash
 Press Enter to Continued
@@ -170,6 +187,8 @@ IMPORTANT NOTES:
 ### Update compose and load ssl cerificate
 
 Tahap ini kita sudah mendapatkan ssl certificate, langkah terakhir adalah uncomment konfigurasi ssl pada nginx.
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```markdown
 server {
