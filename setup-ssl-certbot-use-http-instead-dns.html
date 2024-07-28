@@ -48,7 +48,7 @@
 <body class="w-fit sm:w-auto">
   <header class="gaps-4 py-4 px-10 dark:bg-gray-900 dark:text-white">
     <div class="container mx-auto flex items-center justify-between">
-      <div class="logo flex items-center justify-center text-2xl font-bold pb-3">
+      <div class="logo flex items-center justify-center text-16 md:text-2xl font-bold pb-4 md:pb-3">
         <a href="/" class="relative -mt-2">
           <span class="text-6xl text-teal-500">.</span>
           <span
@@ -74,7 +74,7 @@
         <ul class="flex items-center font-semibold text-xl">
           <li class="px-2 mr-4">
             <a href="/blog" class="dark:text-white dark:hover:text-teal-400">
-              <svg class="fill-grey-500 hover:fill-teal-500 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+              <svg class="fill-grey-500 hover:fill-teal-500 w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z" />
@@ -84,7 +84,7 @@
           </li>
           <li class="px-2 mr-4">
             <a href="#project" class="dark:text-white dark:hover:text-teal-400">
-              <svg class="fill-grey-500 hover:fill-teal-500 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+              <svg class="fill-grey-500 hover:fill-teal-500 w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
                 <path
                   d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM5 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0-3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0-3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm10 6H9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2Zm0-3H9a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2Zm0-3H9a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2Z" />
@@ -93,7 +93,7 @@
           </li>
           <li class="px-2 mr-4">
             <a href="mailto:dev@muhfaris.com" class="dark:text-white dark:hover:text-teal-400">
-              <svg class="fill-grey-500 hover:fill-teal-500 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+              <svg class="fill-grey-500 hover:fill-teal-500 w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
                 <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
                 <path
@@ -107,16 +107,21 @@
   </header>
   <!-- Content -->
   <main role="main" class="site-content dark:bg-gray-800">
-<div x-data="{atTop:true}" class="post flex flex-col justify-between" :class="{'min-h-screen' :'h-screen'}"
-  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)">
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+<div
+  x-data="{atTop:true}"
+  class="post flex flex-col justify-between"
+  :class="{'min-h-screen' :'h-screen'}"
+  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)"
+>
+  <main class="w-auto mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
     <div class="container mx-auto flex justify-center px-4 text-white">
       <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
         <header class="pt-6 xl:pb-6">
           <div class="space-y-1 text-center">
             <div>
               <h1
-                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
                 Setup ssl cerbot use HTTP instead DNS
               </h1>
             </div>
@@ -124,21 +129,32 @@
             <dl class="space-y-10">
               <div>
                 <dt class="sr-only">Published on</dt>
-                <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 mt-2">
-                  <time datetime="2021-05-02T00:00:00.000Z">Monday, October 9,2023</time>
+                <dd
+                  class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 mt-2"
+                >
+                  <time datetime="2021-05-02T00:00:00.000Z"
+                    >Monday, October 9,2023</time
+                  >
                 </dd>
               </div>
             </dl>
           </div>
         </header>
-        <div class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
-          style="grid-template-rows: auto 1fr">
-          <dl class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+        <div
+          class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+          style="grid-template-rows: auto 1fr"
+        >
+          <dl
+            class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700"
+          >
             <dt class="sr-only">Authors</dt>
             <dd>
-              <ul class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
+              <ul
+                class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
+              >
                 <li class="flex items-center space-x-2">
-                  <span style="
+                  <span
+                    style="
                       box-sizing: border-box;
                       display: inline-block;
                       overflow: hidden;
@@ -151,7 +167,9 @@
                       padding: 0px;
                       position: relative;
                       max-width: 100%;
-                    "><span style="
+                    "
+                    ><span
+                      style="
                         box-sizing: border-box;
                         display: block;
                         width: initial;
@@ -162,7 +180,10 @@
                         margin: 0px;
                         padding: 0px;
                         max-width: 100%;
-                      "><img alt="" aria-hidden="true"
+                      "
+                      ><img
+                        alt=""
+                        aria-hidden="true"
                         src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2738%27%20height=%2738%27/%3e"
                         style="
                           display: block;
@@ -174,8 +195,15 @@
                           border: 0px;
                           margin: 0px;
                           padding: 0px;
-                        " /></span><img alt="avatar" srcset="/assets/images/faris.jpg" src="/assets/images/faris.jpg"
-                      decoding="async" data-nimg="intrinsic" class="h-10 w-10 rounded-full" style="
+                        " /></span
+                    ><img
+                      alt="avatar"
+                      srcset="/assets/images/faris.jpg"
+                      src="/assets/images/faris.jpg"
+                      decoding="async"
+                      data-nimg="intrinsic"
+                      class="h-10 w-10 rounded-full"
+                      style="
                         position: absolute;
                         inset: 0px;
                         box-sizing: border-box;
@@ -189,7 +217,8 @@
                         max-width: 100%;
                         min-height: 100%;
                         max-height: 100%;
-                      " /></span>
+                      "
+                  /></span>
                   <dl class="whitespace-nowrap text-sm font-medium leading-5">
                     <dt class="sr-only">Name</dt>
                     <dd class="text-gray-900 dark:text-gray-100">
@@ -197,15 +226,22 @@
                     </dd>
                     <dt class="sr-only">Twitter</dt>
                     <dd>
-                      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/_muh_faris"
-                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">@Twitter</a>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://twitter.com/_muh_faris"
+                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                        >@Twitter</a
+                      >
                     </dd>
                   </dl>
                 </li>
               </ul>
             </dd>
           </dl>
-          <div class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+          <div
+            class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
+          >
             
             <div id="table-of-contents" class="bg-gray-900 p-5">
               <h2 class="font-semibold">Table of Contents</h2>
@@ -226,7 +262,9 @@
 </ul>
             </div>
             
-            <article class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8">
+            <article
+              class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8"
+            >
               <h2 id="introduction">Introduction</h2>
 
 <p>Installasi ssl pada suatu domain supaya dapat diakses secara aman dengan https://, perlu banget untuk menambahkah certificate dari domain tersebut. Generate certificate domain ini kita bisa manfaatkan tool certbot instead kita generate manual sendiri.</p>
@@ -252,18 +290,18 @@
 
 <p>Kita bikin folder baru, anggaplah saat ini kita ada di root directory atau <strong>home</strong> directory terminal. Buat folder <code class="language-html highlighter-rouge">nginx</code> kemudian buat file dengan format <code class="language-html highlighter-rouge">domain.com.conf</code> didalamnya. Jika nama domainnya adalah <code class="language-html highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> maka file konfigurasinya adalah <code class="language-html highlighter-rouge">muhfaris.com.conf</code>. Jadi akan terlihat seperti berikut structure foldernya</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">nginx</span><span class="w">
+<div class="language-json w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">nginx</span><span class="w">
 </span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Selanjutnya kita akan siapkan konfigurasi nginx untuk handle request dari certbot. Pada konfigurasi ini kita perlu untuk membuat konfigurasi location .well-known/acme-challenge untuk menerima request dari certbotnya. Ketika kita generate ssl, certbot nanti akan melakukan request ke doman kita dengan format requestnya itu seperti berikut</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">http://&lt;domain.com&gt;/.well-known/acme-challenge/&lt;random</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">key&gt;</span><span class="w">
+<div class="language-json w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">http://&lt;domain.com&gt;/.well-known/acme-challenge/&lt;random</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">key&gt;</span><span class="w">
 </span></code></pre></div></div>
 
 <p>Edit file <code class="language-html highlighter-rouge">muhfaris.com.conf</code> dan masukan konfigurasi nginx berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="language-json w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">listen</span><span class="w"> </span><span class="mi">80</span><span class="err">;</span><span class="w">
     </span><span class="err">listen</span><span class="w"> </span><span class="p">[</span><span class="err">::</span><span class="p">]</span><span class="err">:</span><span class="mi">80</span><span class="err">;</span><span class="w">
 
@@ -305,7 +343,7 @@
 
 <p>Silahkan buat file <code class="language-html highlighter-rouge">docker-compose.yaml</code> kemudian copy-paste konfig berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">version:</span><span class="w"> </span><span class="s2">"3.4"</span><span class="w">
+<div class="language-json w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">version:</span><span class="w"> </span><span class="s2">"3.4"</span><span class="w">
 </span><span class="err">services:</span><span class="w">
 	</span><span class="err">nginx:</span><span class="w">
 	    </span><span class="err">image:</span><span class="w"> </span><span class="err">nginx:latest</span><span class="w">
@@ -328,7 +366,7 @@
 
 <p>Setelah langkah-langkah diatas selesai, maka structure foldernya akan berubah seperti berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">.</span><span class="w">
+<div class="language-json w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">.</span><span class="w">
 </span><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
 </span><span class="err">└──</span><span class="w"> </span><span class="err">nginx</span><span class="w">
     </span><span class="err">└──</span><span class="w"> </span><span class="err">muhfaris.com.conf</span><span class="w">
@@ -338,7 +376,7 @@
 
 <p>Buat folder baru didalam folder <code class="language-html highlighter-rouge">nginx</code> yang sudah dibuat dengan nama <code class="language-html highlighter-rouge">acme</code> , folder ini nanti sebagai webroot di nginxnya. Maka structure folder akan terlihat seperti berikut:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
+<div class="language-json w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">├──</span><span class="w"> </span><span class="err">docker-compose.yaml</span><span class="w">
 </span><span class="err">└──</span><span class="w">	</span><span class="err">nginx</span><span class="w">
 		</span><span class="err">├──</span><span class="w"> </span><span class="err">acme</span><span class="w">
 		</span><span class="err">│  </span><span class="w"> </span><span class="err">└──</span><span class="w"> </span><span class="err">index.html</span><span class="w">
@@ -351,7 +389,7 @@
 
 <p>Selanjutnya, kita generate certificate menggunakan certbot. Silahkan ganti domain <code class="language-html highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> pada perintah certbot berikut sesuai dengan domain yang sudah disiapkan.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">sudo</span><span class="w"> </span><span class="err">certbot</span><span class="w"> </span><span class="err">certonly</span><span class="w"> </span><span class="err">\</span><span class="w">
+<div class="language-json w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="err">sudo</span><span class="w"> </span><span class="err">certbot</span><span class="w"> </span><span class="err">certonly</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="err">--preferred-challenges</span><span class="w"> </span><span class="err">http</span><span class="w"> </span><span class="err">-d</span><span class="w"> </span><span class="err">muhfaris.com</span><span class="w"> </span><span class="err">--agree-tos</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="err">--manual-public-ip-logging-ok</span><span class="w"> </span><span class="err">--preferred-challenges</span><span class="w"> </span><span class="err">dns</span><span class="mi">-01</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="err">--server</span><span class="w"> </span><span class="err">https://acme-v</span><span class="mi">02</span><span class="err">.api.letsencrypt.org/directory</span><span class="w"> </span><span class="err">\</span><span class="w">
@@ -361,7 +399,7 @@
 
 <p>Perintah diatas akan melakukan generate ssl certificate dari domain <code class="language-html highlighter-rouge">[muhfaris.com](http://muhfaris.com)</code> , pada proses ini certbot akan melakukan verifikasi domain dengan mengakses path <code class="language-html highlighter-rouge">acme-challenge</code>. Jika proses berhasil maka tampilan outputnya seperti berikut:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>Press Enter to Continued
+<div class="language-bash w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>Press Enter to Continued
 Waiting <span class="k">for </span>verification...
 Cleaning up challenges
 
@@ -385,7 +423,7 @@ IMPORTANT NOTES:
 
 <p>Tahap ini kita sudah mendapatkan ssl certificate, langkah terakhir adalah uncomment konfigurasi ssl pada nginx.</p>
 
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>server {
+<div class="language-markdown w-80 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code>server {
 ...
 ...
 ssl_certificate /etc/letsencrypt/live/muhfaris.com/fullchain.pem;
@@ -397,60 +435,101 @@ ssl_certificate_key /etc/letsencrypt/live/muhfaris.com/privkey.pem;
 
             </article>
             <div class="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-              <a target="_blank" rel="nofollow"
-                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing">Discuss
-                on Twitter</a>
+              <a
+                target="_blank"
+                rel="nofollow"
+                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing"
+                >Discuss on Twitter</a
+              >
               •
-              <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md">View
-                on GitHub</a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md"
+                >View on GitHub</a
+              >
             </div>
             <div id="comment">
-              <div class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
-                <script src="https://giscus.app/client.js" data-repo="muhfaris/muhfaris.github.io"
-                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ==" data-category="Comments"
-                  data-category-id="DIC_kwDOBRvyb84CUJNs" data-mapping="url" data-strict="0" data-reactions-enabled="1"
-                  data-emit-metadata="0" data-input-position="bottom" data-theme="dark_tritanopia" data-lang="en"
-                  data-loading="lazy" crossorigin="anonymous" async></script>
+              <div
+                class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+              >
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="muhfaris/muhfaris.github.io"
+                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ=="
+                  data-category="Comments"
+                  data-category-id="DIC_kwDOBRvyb84CUJNs"
+                  data-mapping="url"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="dark_tritanopia"
+                  data-lang="en"
+                  data-loading="lazy"
+                  crossorigin="anonymous"
+                  async
+                ></script>
               </div>
             </div>
           </div>
           <footer>
             <div
-              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y"
+            >
               <div class="py-4 xl:py-8">
-                <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                <h2
+                  class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                >
                   Tags
                 </h2>
                 <div class="flex flex-wrap">
                   
-                  <a class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
-                    href="/categories/infra">infra</a>
+                  <a
+                    class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                    href="/categories/infra"
+                    >infra</a
+                  >
                   
                 </div>
               </div>
-              <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
+              <div
+                class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8"
+              >
                 <div>
-                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <h2
+                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                  >
                     Previous Article
                   </h2>
-                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
-                    <a href="/where-clause-sql-di-golang">Mengatasi masalah where clause di Golang</a>
+                  <div
+                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                  >
+                    <a href="/where-clause-sql-di-golang"
+                      >Mengatasi masalah where clause di Golang</a
+                    >
                   </div>
                 </div>
                 <div>
-                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <h2
+                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                  >
                     Next Article
                   </h2>
-                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
+                  <div
+                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                  >
                     <a href="/filter-date-today-on-view-collection">Filter date today on view collection MongoDB</a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="pt-4 xl:pt-8">
-              <a class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" href="/">← Back to the
-                blog</a>
+              <a
+                class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                href="/"
+                >← Back to the blog</a
+              >
             </div>
           </footer>
         </div>
@@ -459,7 +538,6 @@ ssl_certificate_key /etc/letsencrypt/live/muhfaris.com/privkey.pem;
   </main>
 </div>
 </main>
-
   <!-- Footer -->
   <footer class="text-gray-600 body-font">
     <div class="dark:bg-gray-900">

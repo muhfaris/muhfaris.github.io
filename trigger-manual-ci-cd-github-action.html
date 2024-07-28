@@ -48,7 +48,7 @@
 <body class="w-fit sm:w-auto">
   <header class="gaps-4 py-4 px-10 dark:bg-gray-900 dark:text-white">
     <div class="container mx-auto flex items-center justify-between">
-      <div class="logo flex items-center justify-center text-2xl font-bold pb-3">
+      <div class="logo flex items-center justify-center text-16 md:text-2xl font-bold pb-4 md:pb-3">
         <a href="/" class="relative -mt-2">
           <span class="text-6xl text-teal-500">.</span>
           <span
@@ -74,7 +74,7 @@
         <ul class="flex items-center font-semibold text-xl">
           <li class="px-2 mr-4">
             <a href="/blog" class="dark:text-white dark:hover:text-teal-400">
-              <svg class="fill-grey-500 hover:fill-teal-500 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+              <svg class="fill-grey-500 hover:fill-teal-500 w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z" />
@@ -84,7 +84,7 @@
           </li>
           <li class="px-2 mr-4">
             <a href="#project" class="dark:text-white dark:hover:text-teal-400">
-              <svg class="fill-grey-500 hover:fill-teal-500 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+              <svg class="fill-grey-500 hover:fill-teal-500 w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
                 <path
                   d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM5 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0-3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0-3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm10 6H9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2Zm0-3H9a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2Zm0-3H9a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2Z" />
@@ -93,7 +93,7 @@
           </li>
           <li class="px-2 mr-4">
             <a href="mailto:dev@muhfaris.com" class="dark:text-white dark:hover:text-teal-400">
-              <svg class="fill-grey-500 hover:fill-teal-500 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+              <svg class="fill-grey-500 hover:fill-teal-500 w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
                 <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
                 <path
@@ -107,16 +107,21 @@
   </header>
   <!-- Content -->
   <main role="main" class="site-content dark:bg-gray-800">
-<div x-data="{atTop:true}" class="post flex flex-col justify-between" :class="{'min-h-screen' :'h-screen'}"
-  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)">
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+<div
+  x-data="{atTop:true}"
+  class="post flex flex-col justify-between"
+  :class="{'min-h-screen' :'h-screen'}"
+  @scroll.window="atTop = (window.pageYOffset > 20 ? false:true)"
+>
+  <main class="w-auto mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
     <div class="container mx-auto flex justify-center px-4 text-white">
       <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
         <header class="pt-6 xl:pb-6">
           <div class="space-y-1 text-center">
             <div>
               <h1
-                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
                 Cara membuat trigger manual ci/cd di github action
               </h1>
             </div>
@@ -124,21 +129,32 @@
             <dl class="space-y-10">
               <div>
                 <dt class="sr-only">Published on</dt>
-                <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 mt-2">
-                  <time datetime="2021-05-02T00:00:00.000Z">Saturday, June 1,2024</time>
+                <dd
+                  class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400 mt-2"
+                >
+                  <time datetime="2021-05-02T00:00:00.000Z"
+                    >Saturday, June 1,2024</time
+                  >
                 </dd>
               </div>
             </dl>
           </div>
         </header>
-        <div class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
-          style="grid-template-rows: auto 1fr">
-          <dl class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+        <div
+          class="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+          style="grid-template-rows: auto 1fr"
+        >
+          <dl
+            class="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700"
+          >
             <dt class="sr-only">Authors</dt>
             <dd>
-              <ul class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
+              <ul
+                class="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
+              >
                 <li class="flex items-center space-x-2">
-                  <span style="
+                  <span
+                    style="
                       box-sizing: border-box;
                       display: inline-block;
                       overflow: hidden;
@@ -151,7 +167,9 @@
                       padding: 0px;
                       position: relative;
                       max-width: 100%;
-                    "><span style="
+                    "
+                    ><span
+                      style="
                         box-sizing: border-box;
                         display: block;
                         width: initial;
@@ -162,7 +180,10 @@
                         margin: 0px;
                         padding: 0px;
                         max-width: 100%;
-                      "><img alt="" aria-hidden="true"
+                      "
+                      ><img
+                        alt=""
+                        aria-hidden="true"
                         src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2738%27%20height=%2738%27/%3e"
                         style="
                           display: block;
@@ -174,8 +195,15 @@
                           border: 0px;
                           margin: 0px;
                           padding: 0px;
-                        " /></span><img alt="avatar" srcset="/assets/images/faris.jpg" src="/assets/images/faris.jpg"
-                      decoding="async" data-nimg="intrinsic" class="h-10 w-10 rounded-full" style="
+                        " /></span
+                    ><img
+                      alt="avatar"
+                      srcset="/assets/images/faris.jpg"
+                      src="/assets/images/faris.jpg"
+                      decoding="async"
+                      data-nimg="intrinsic"
+                      class="h-10 w-10 rounded-full"
+                      style="
                         position: absolute;
                         inset: 0px;
                         box-sizing: border-box;
@@ -189,7 +217,8 @@
                         max-width: 100%;
                         min-height: 100%;
                         max-height: 100%;
-                      " /></span>
+                      "
+                  /></span>
                   <dl class="whitespace-nowrap text-sm font-medium leading-5">
                     <dt class="sr-only">Name</dt>
                     <dd class="text-gray-900 dark:text-gray-100">
@@ -197,15 +226,22 @@
                     </dd>
                     <dt class="sr-only">Twitter</dt>
                     <dd>
-                      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/_muh_faris"
-                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">@Twitter</a>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://twitter.com/_muh_faris"
+                        class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                        >@Twitter</a
+                      >
                     </dd>
                   </dl>
                 </li>
               </ul>
             </dd>
           </dl>
-          <div class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+          <div
+            class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"
+          >
             
             <div id="table-of-contents" class="bg-gray-900 p-5">
               <h2 class="font-semibold">Table of Contents</h2>
@@ -215,7 +251,9 @@
 </ul>
             </div>
             
-            <article class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8">
+            <article
+              class="prose dark:prose-invert prose-lg xl:prose-xl max-w-none pt-10 pb-8"
+            >
               <h2 id="problem">Problem</h2>
 
 <p>Masalah yang terjadi adalah, untuk trigger manual ci/cd di github action itu tidak bisa dan dari UI github pada menu Action pun juga tidak tersedia. Kenapa ini penting? dari pengalaman saya, selama ini menggunakan github sebagai repository dan menggunakan portainer sebagai management containernya bukan kubernetes.</p>
@@ -232,7 +270,7 @@ Untuk langkah-langkahnya sebagai berikut:</p>
   <li>Copy kode berikut ke file <code class="language-html highlighter-rouge">manual-trigger-ci-cd.yml</code></li>
 </ol>
 
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="nn">---</span>
+<div class="language-yaml w-96 overflow-x-auto md:w-full highlighter-rouge"><div class="highlight"><pre class="highlight w-full"><code><span class="nn">---</span>
 <span class="na">name</span><span class="pi">:</span> <span class="s">Manual deploy</span> <span class="c1"># Workflow name displayed on GitHub</span>
 <span class="na">on</span><span class="pi">:</span>
   <span class="na">workflow_dispatch</span><span class="pi">:</span>
@@ -278,7 +316,7 @@ Untuk langkah-langkahnya sebagai berikut:</p>
 
 <p>Pada konfigurasi di atas, kita menggunakan <code class="language-html highlighter-rouge">workflow_dispatch</code> untuk mengatur trigger manual di github action. Kemudian pada bagian <code class="language-html highlighter-rouge">jobs</code> adalah task yang akan dijalankan setelah kita submit trigger manual tersebut. Bagaimana tampilan UInya di github itu akan seperti berikut:</p>
 
-<p><img src="assets/images/manual-trigger-ci-cd-github.png" alt="workflow_dispatch" /></p>
+<p class="w-96 md:w-full"><img src="assets/images/manual-trigger-ci-cd-github.png" alt="workflow_dispatch" /></p>
 
 <p>Referensi:</p>
 
@@ -288,60 +326,101 @@ Untuk langkah-langkahnya sebagai berikut:</p>
 
             </article>
             <div class="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-              <a target="_blank" rel="nofollow"
-                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing">Discuss
-                on Twitter</a>
+              <a
+                target="_blank"
+                rel="nofollow"
+                href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Fnested-route%2Fintroducing-multi-part-posts-with-nested-routing"
+                >Discuss on Twitter</a
+              >
               •
-              <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md">View
-                on GitHub</a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/master/data/blog/nested-route/introducing-multi-part-posts-with-nested-routing.md"
+                >View on GitHub</a
+              >
             </div>
             <div id="comment">
-              <div class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
-                <script src="https://giscus.app/client.js" data-repo="muhfaris/muhfaris.github.io"
-                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ==" data-category="Comments"
-                  data-category-id="DIC_kwDOBRvyb84CUJNs" data-mapping="url" data-strict="0" data-reactions-enabled="1"
-                  data-emit-metadata="0" data-input-position="bottom" data-theme="dark_tritanopia" data-lang="en"
-                  data-loading="lazy" crossorigin="anonymous" async></script>
+              <div
+                class="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+              >
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="muhfaris/muhfaris.github.io"
+                  data-repo-id="MDEwOlJlcG9zaXRvcnk4NTcxNzYxNQ=="
+                  data-category="Comments"
+                  data-category-id="DIC_kwDOBRvyb84CUJNs"
+                  data-mapping="url"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="dark_tritanopia"
+                  data-lang="en"
+                  data-loading="lazy"
+                  crossorigin="anonymous"
+                  async
+                ></script>
               </div>
             </div>
           </div>
           <footer>
             <div
-              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+              class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y"
+            >
               <div class="py-4 xl:py-8">
-                <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                <h2
+                  class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                >
                   Tags
                 </h2>
                 <div class="flex flex-wrap">
                   
-                  <a class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
-                    href="/categories/development">development</a>
+                  <a
+                    class="mr-3 text-sm font-medium uppercase text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                    href="/categories/development"
+                    >development</a
+                  >
                   
                 </div>
               </div>
-              <div class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
+              <div
+                class="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8"
+              >
                 <div>
-                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <h2
+                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                  >
                     Previous Article
                   </h2>
-                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
-                    <a href="/fixing-golang-not-the-empty-string">Fixing Golang 1.21.5 error not the empty string</a>
+                  <div
+                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                  >
+                    <a href="/fixing-golang-not-the-empty-string"
+                      >Fixing Golang 1.21.5 error not the empty string</a
+                    >
                   </div>
                 </div>
                 <div>
-                  <h2 class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <h2
+                    class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                  >
                     Next Article
                   </h2>
-                  <div class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400">
+                  <div
+                    class="text-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
+                  >
                     <a href="/nvim-plugins-part-1">Perjalanan membuat plugin di nvim part 1</a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="pt-4 xl:pt-8">
-              <a class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" href="/">← Back to the
-                blog</a>
+              <a
+                class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                href="/"
+                >← Back to the blog</a
+              >
             </div>
           </footer>
         </div>
@@ -350,7 +429,6 @@ Untuk langkah-langkahnya sebagai berikut:</p>
   </main>
 </div>
 </main>
-
   <!-- Footer -->
   <footer class="text-gray-600 body-font">
     <div class="dark:bg-gray-900">
