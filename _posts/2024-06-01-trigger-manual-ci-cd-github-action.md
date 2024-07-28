@@ -25,7 +25,7 @@ Untuk langkah-langkahnya sebagai berikut:
 1. Buat file `.github/workflows/manual-trigger-ci-cd.yml` di folder `.github/workflows` di repository kita.
 2. Copy kode berikut ke file `manual-trigger-ci-cd.yml`
 
-{:.dark}
+{:.w-96 .overflow-x-auto .md:w-full}
 
 ```yaml
 ---
@@ -74,6 +74,7 @@ jobs:
 
 Pada konfigurasi di atas, kita menggunakan `workflow_dispatch` untuk mengatur trigger manual di github action. Kemudian pada bagian `jobs` adalah task yang akan dijalankan setelah kita submit trigger manual tersebut. Bagaimana tampilan UInya di github itu akan seperti berikut:
 
+{:.w-96 .md:w-full}
 ![workflow_dispatch](assets/images/manual-trigger-ci-cd-github.png)
 
 Referensi:
