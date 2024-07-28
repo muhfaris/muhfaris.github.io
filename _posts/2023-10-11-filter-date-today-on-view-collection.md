@@ -7,6 +7,7 @@ toc: true
 categories:
   - development
 ---
+
 Hari ini saya dapat issue pada sistem aplikasi yang memanfaatkan views colleciton di mongodb. Data yang seharusnya menampilkan data hari ini justru menampilkan data kemarin. Issue terbesar ada pada filter date today pada views collection di mongodb.
 
 ## Introduction
@@ -31,6 +32,8 @@ Filter date today yang digunakan adalah menggunakan `new Date()` , jadi helper t
 
 Sebagai gambaran, ketika kita membuat view collection **baru** dengan filter date hari ini maka aggregate yang digunakan seperti berikut:
 
+{:.w-80 .overflow-x-auto .md:w-full}
+
 ```json
 {
  "$match": {
@@ -45,6 +48,8 @@ Sebagai gambaran, ketika kita membuat view collection **baru** dengan filter dat
 ```
 
 Misal besok kita check lagi query yang sudah dibuat, query diatas akan berubah menjadi seperti berikut:
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```json
 {
@@ -66,6 +71,8 @@ seharusnya filter date tersebut tetap menampilkan `new Date()` karena yang diing
 Setelah beberapa kali riset, saya dapati pada mongodb mempunyai fungsi [$expr](https://www.mongodb.com/docs/v7.0/reference/operator/query/expr/) yang dapat kita manfaatkan. Dengan fungsi ini dikombinasikan untuk mendapatkan date hari ini menggunakan `NOW` dari pada `new Date()`.
 
 Pada filter sebelumnya akan diubah dan disatukan dalam `and` , sehingga filter tersebut masih tetep sama, akan mengambil voucher yang available dan belum expired.
+
+{:.w-80 .overflow-x-auto .md:w-full}
 
 ```json
 {

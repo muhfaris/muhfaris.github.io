@@ -30,11 +30,15 @@ Sebagai developer bisa sangat membantu, developer dapat mengatur sumber yang dig
 karena GOPROXY juga punya sistem cache.
 
 Ilustrasi GOPROXY dapat dilihat seperti berikut:
+
+{:.w-auto .md:w-full}
 ![GOPROXY](/assets/images/goproxy.avif)
 
 ## Workaround
 
 Tambahkan env baru untuk `GOPROXY` dan `GOSUMDB`
+
+{:.w-auto .overflow-x-auto .md:w-full}
 
 ```bash
 export GOPROXY=https://proxy.golang.org,direct
@@ -42,6 +46,8 @@ export GOSUMDB=sum.golang.org
 ```
 
 atau menggunakan `go -w`
+
+{:.auto .overflow-x-auto .md:w-full}
 
 ```bash
 go env -w GOPROXY=https://proxy.golang.org,direct
